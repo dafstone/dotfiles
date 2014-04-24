@@ -32,6 +32,7 @@
 .mysql_history
 .namecheap.swp
 .npm/
+.pem/
 .rnd
 .rvm/
 .sh_history
@@ -54,9 +55,6 @@ Movies/
 Music/
 Pictures/
 Public/
-Stone-SP.pem
-VS1.pem
-VS_BLOG.pem
 VirtualBox VMs/
 bin/
 dafstonebay
@@ -72,3 +70,4 @@ things/
 true,
 vboxes/
 vs.root
+*.swp
