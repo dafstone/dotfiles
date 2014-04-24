@@ -17,8 +17,8 @@ Plugin 'gmarik/vundle'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-rails.git'
 " Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'tpope/vim-rails.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
