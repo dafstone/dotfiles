@@ -71,6 +71,10 @@ set shiftwidth=4											" number of spaces for auto-indent
 set laststatus=2											" Show the statusline all the time
 set hidden														" handle multiple buffers better
 
+" NERDTree Configuration 
+
+let NERDTreeShowHidden=1
+
 " Stole Eileens Status Line
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
