@@ -30,7 +30,6 @@
 .lighttable/
 .local/
 .mysql_history
-.namecheap.swp
 .npm/
 .pem/
 .rnd
@@ -56,16 +55,10 @@ Pictures/
 Public/
 VirtualBox VMs/
 bin/
-emngithub
 host/
 id_rsa
 index.html
 key.rsa
 node_modules/
-samples/
 scripts/
-things/
-true,
-vboxes/
-vs.root
 *.swp
