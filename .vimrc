@@ -4,6 +4,7 @@
 
 set nocompatible
 filetype off
+set number
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
@@ -12,37 +13,67 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
+" Plugins
+
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-rails.git'
+Plugin 'scrooloose/nerdtree'
+" Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'tpope/vim-rails.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " scripts from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-Plugin 'FuzzyFinder'
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
 " scripts not on GitHub
 " Plugin ':git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 
+" Search Configuration
+
+set ignorecase		" Case Insensitivity
+set smartcase		" Unless explict match
+
 filetype plugin indent on     " required
 
 " allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set nobackup													" keep no backup file flying free
+set history=50												" keep 50 lines of command line history
+set ruler															" show the cursor position all the time
+set showcmd														" display incomplete commands
+set incsearch													" do incremental searching
+set showcmd														" Show incomplete commands
+set showmode													" Display the Mode
+set backspace=indent,eol,start				" Nice Backspaceing
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+" Force Defaults to UTF-8
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Search Configuration
+
+set ignorecase												" Case Insensitivity
+set smartcase													" Unless explict match
+set incsearch													" Highlight Matching as I type
+set hlsearch													" Highlight Matches
+
+" Other
+
+set title															" Set the terminal title
+set autoindent												" autoindent on CR
+set copyindent												" copy previous indenting
+set tabstop=2													" Global Tab Width
+set shiftwidth=4											" number of spaces for auto-indent
+set laststatus=2											" Show the statusline all the time
+set hidden														" handle multiple buffers better
+
+" Stole Eileens Status Line
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
