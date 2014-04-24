@@ -2,10 +2,15 @@
 
 # PATH Stuff
 
-[[ -s "/Users/stone/.rvm/scripts/rvm" ]] && source "/Users/stone/.rvm/scripts/rvm" # Load RVM into shell *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export EDITOR=vim
+
+# Experimental
+
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+source $(brew --prefix nvm)/nvm.sh
+
+export PATH
 
 # Setup for including .bashrc (OSX)
 
@@ -23,5 +28,12 @@ eval "$(/Users/stone/.chefvm/bin/chefvm init -)"
 # Todo: Setup Git Aliases
 # . ~/.git_aliases
 
-alias pwgen="ruby /Users/stone/scripts/passwordgen.rb"
-alias miner="mosh --ssh="ssh -p 23456" root@dafs.no-ip.biz"
+alias pwgen='ruby /Users/stone/scripts/passwordgen.rb'
+alias miner='mosh --ssh="ssh -p 23456" root@dafs.no-ip.biz'
+
+
+# Experimenting with Profile and trying to fix RVM
+
+source ~/.profile
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
