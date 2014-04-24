@@ -1,15 +1,11 @@
 # Stone's Bash Profile for Local Use
 
-# PATH Stuff
-
-export EDITOR=vim
-
-# Experimental
+# Environment Setup
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-source $(brew --prefix nvm)/nvm.sh
-
+export EDITOR=vim
 export PATH
+source $(brew --prefix nvm)/nvm.sh
 
 # Setup for including .bashrc (OSX)
 
