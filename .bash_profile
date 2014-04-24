@@ -2,7 +2,6 @@
 
 # PATH Stuff
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export EDITOR=vim
 
 # Experimental
@@ -32,8 +31,8 @@ alias pwgen='ruby /Users/stone/scripts/passwordgen.rb'
 alias miner='mosh --ssh="ssh -p 23456" root@dafs.no-ip.biz'
 
 
-# Experimenting with Profile and trying to fix RVM
+# Version managers added 'as functions' to shell session - Todo: Understand this better
 
-source ~/.profile
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
