@@ -39,6 +39,7 @@ filetype plugin indent on     " required
 
 " allow backspacing over everything in insert mode
 
+syntax on															" syntax on for good
 set nobackup													" keep no backup file flying free
 set history=50												" keep 50 lines of command line history
 set ruler															" show the cursor position all the time
