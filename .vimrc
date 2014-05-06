@@ -63,13 +63,26 @@ set hlsearch													" Highlight Matches
 
 " Other
 
+set expandtab													" Set to use spaces not tabs
 set title															" Set the terminal title
 set autoindent												" autoindent on CR
 set copyindent												" copy previous indenting
 set tabstop=2													" Global Tab Width
-set shiftwidth=4											" number of spaces for auto-indent
+set shiftwidth=2										" number of spaces for auto-indent
 set laststatus=2											" Show the statusline all the time
 set hidden														" handle multiple buffers better
+
+" Experimental
+
+set clipboard=unnamed
+
+" Trying to get vim splits working in tmux
+
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 
 " NERDTree Configuration 
 
