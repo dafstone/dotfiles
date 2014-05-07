@@ -6,6 +6,7 @@ setopt extended_glob                # Add extended globbing
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/stone/.zshrc'
 
+autoload -U zmv
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
