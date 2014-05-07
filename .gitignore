@@ -39,6 +39,7 @@
 .vim/
 .viminfo
 .Trash/
+.zcompdump
 Applications/
 Desktop/
 Documents/
