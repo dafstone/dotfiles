@@ -15,9 +15,11 @@ Plugin 'gmarik/vundle'
 
 " Plugins
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-fugitive'             " git commands
+Plugin 'scrooloose/nerdtree'            " file management
+Plugin 'tpope/vim-rails.git'            " rails powerup
+Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
+
 " Plugin 'Lokaltog/vim-easymotion'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
