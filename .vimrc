@@ -2,9 +2,10 @@
 
 " Use Vim settings, rather than Vi settings (much better!).
 
-set nocompatible
-filetype off
-set number
+set nocompatible                        " original vi has nothing to do with my world
+filetype off                            " no legacy filetype handling
+set number                              " turn on linenumbers
+set noswapfile                          " turning off swapfiles
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
