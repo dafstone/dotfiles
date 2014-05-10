@@ -74,7 +74,7 @@ set hidden														" handle multiple buffers better
 
 " Experimental
 
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Trying to get vim splits working in tmux
 
