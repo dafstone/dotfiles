@@ -1,5 +1,7 @@
 # PATH Stuff
 export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
+export EDITOR=vim
+
 setopt correct                      # Add spelling autocorrect
 setopt extended_glob                # Add extended globbing
 

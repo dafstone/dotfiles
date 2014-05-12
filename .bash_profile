@@ -3,7 +3,6 @@
 # Environment Setup
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-export EDITOR=vim
 export PATH
 source $(brew --prefix nvm)/nvm.sh
 
