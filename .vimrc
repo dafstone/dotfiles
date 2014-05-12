@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'             " git commands
 Plugin 'scrooloose/nerdtree'            " file management
 Plugin 'tpope/vim-rails.git'            " rails powerup
 Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
+Plugin 'httplog'
 
 " Plugin 'Lokaltog/vim-easymotion'
 " The sparkup vim script is in a subdirectory of this repo called vim.
