@@ -2,6 +2,10 @@
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 
+# Plugin Definition
+
+plugins=(git ruby rails mosh osx web-search)
+
 # ZSH Options
 
 setopt correct
@@ -24,9 +28,6 @@ HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 # DISABLE_UNTRACKED_FILES_DIRTY="true"  # Don't show untracked files
 # ZSH_CUSTOM=/path/to/new-custom-folder # Use alternative custom folder
 
-# Plugin Definition
-
-plugins=(git ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
