@@ -3,6 +3,7 @@
 .S_O_L rc
 .Xauthority
 .adobe/
+.atom/
 .bash_history
 .berkshelf/
 .cache/
@@ -27,6 +28,7 @@
 .lighttable/
 .local/
 .mysql_history
+.node-gyp/
 .npm/
 .pem/
 .oh-my-zsh/
