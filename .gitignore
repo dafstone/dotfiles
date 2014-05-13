@@ -29,6 +29,7 @@
 .mysql_history
 .npm/
 .pem/
+.oh-my-zsh/
 .rnd
 .rvm/
 .sh_history
@@ -40,6 +41,10 @@
 .viminfo
 .Trash/
 .zcompdump
+.zcompdump-Arun-5.0.5
+.zsh-update
+.zsh_history
+.zshrc_backup
 Applications/
 Desktop/
 Documents/
