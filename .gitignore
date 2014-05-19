@@ -4,6 +4,7 @@
 .Xauthority
 .adobe/
 .atom/
+.aws/
 .bash_history
 .berkshelf/
 .cache/
