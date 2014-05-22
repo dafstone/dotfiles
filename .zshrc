@@ -56,3 +56,7 @@ autoload -U zmv
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Adding vim behavior to shell
+
+bindkey -v
