@@ -4,7 +4,7 @@ export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 
 # Plugin Definition
 
-plugins=(git ruby rails mosh osx web-search)
+plugins=(git ruby rails mosh osx web-search vi-mode)
 
 # ZSH Options
 
@@ -37,11 +37,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set vim as editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
