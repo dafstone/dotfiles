@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdtree'            " file management
 Plugin 'tpope/vim-rails.git'            " rails powerup
 Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
 Plugin 'httplog'                        " http syntax highlighting
+Plugin 'terryma/vim-multiple-cursors'   " allows for multiple cursor usage
 " Plugin 'wincent/Command-T'            " Will get this working someday
 
 " Plugin 'Lokaltog/vim-easymotion'
