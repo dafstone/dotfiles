@@ -32,6 +32,7 @@
 .node-gyp/
 .npm/
 .pem/
+.pry_history
 .oh-my-zsh/
 .rnd
 .rvm/
