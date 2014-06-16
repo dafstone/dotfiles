@@ -10,6 +10,8 @@ set noswapfile                          " turning off swapfiles
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+set t_Co=256
+
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
@@ -22,6 +24,7 @@ Plugin 'tpope/vim-rails.git'            " rails powerup
 Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
 Plugin 'httplog'                        " http syntax highlighting
 Plugin 'terryma/vim-multiple-cursors'   " allows for multiple cursor usage
+Plugin 'bling/vim-airline'              " Powerline inspired VIM statusline
 " Plugin 'wincent/Command-T'            " Will get this working someday
 
 " Plugin 'Lokaltog/vim-easymotion'
@@ -153,3 +156,7 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" airline configuration
+
+let g:airline_powerline_fonts = 1
