@@ -24,7 +24,7 @@ Plugin 'tpope/vim-rails.git'            " rails powerup
 Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
 Plugin 'httplog'                        " http syntax highlighting
 Plugin 'terryma/vim-multiple-cursors'   " allows for multiple cursor usage
-Plugin 'bling/vim-airline'              " Powerline inspired VIM statusline
+" Plugin 'bling/vim-airline'              " Powerline inspired VIM statusline
 " Plugin 'wincent/Command-T'            " Will get this working someday
 
 " Plugin 'Lokaltog/vim-easymotion'
@@ -157,6 +157,11 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" airline configuration
+" PowerLine configuration
 
 let g:airline_powerline_fonts = 1
+
+python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages")
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
