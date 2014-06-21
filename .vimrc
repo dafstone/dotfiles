@@ -24,7 +24,8 @@ Plugin 'tpope/vim-rails.git'            " rails powerup
 Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
 Plugin 'httplog'                        " http syntax highlighting
 Plugin 'terryma/vim-multiple-cursors'   " allows for multiple cursor usage
-" Plugin 'bling/vim-airline'              " Powerline inspired VIM statusline
+Plugin 'Lokaltog/vim-easymotion'        " Vim Jumping Motions
+Plugin 'plasticboy/vim-markdown'        " markdown syntax
 " Plugin 'wincent/Command-T'            " Will get this working someday
 
 " Plugin 'Lokaltog/vim-easymotion'
