@@ -101,7 +101,9 @@ let NERDTreeShowHidden=1
 " Stole Eileens Status Line
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+" VIM-Markdown Configuration
 
+let g:vim_markdown_folding_disabled=1
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
