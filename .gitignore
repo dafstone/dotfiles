@@ -18,6 +18,7 @@
 .fontconfig/
 .gdb_history
 .gem/
+.gnupg/
 .gitconfig
 .gitk
 .gvm/
