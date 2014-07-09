@@ -12,6 +12,7 @@ setopt correct
 
 # Aliases 
 alias zshcfg="vim ~/.zshrc"
+alias vimcfg="vim ~/.vimrc"
 
 # ZSH Globals
 
