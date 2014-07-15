@@ -13,6 +13,8 @@ setopt correct
 # Aliases 
 alias zshcfg="vim ~/.zshrc"
 alias vimcfg="vim ~/.vimrc"
+alias lsa="ls -alh"
+
 
 # ZSH Globals
 
