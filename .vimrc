@@ -18,15 +18,17 @@ Plugin 'gmarik/vundle'
 
 " Plugins
 
-Plugin 'tpope/vim-fugitive'             " git commands
-Plugin 'scrooloose/nerdtree'            " file management
-Plugin 'tpope/vim-rails.git'            " rails powerup
-Plugin 'tpope/vim-ragtag.git'           " tag completion goodness
-Plugin 'httplog'                        " http syntax highlighting
-Plugin 'terryma/vim-multiple-cursors'   " allows for multiple cursor usage
-Plugin 'Lokaltog/vim-easymotion'        " Vim Jumping Motions
-Plugin 'plasticboy/vim-markdown'        " markdown syntax
-" Plugin 'wincent/Command-T'            " Will get this working someday
+Plugin 'tpope/vim-fugitive'               " git commands
+Plugin 'scrooloose/nerdtree'              " file management
+Plugin 'tpope/vim-rails.git'              " rails powerup
+Plugin 'tpope/vim-ragtag.git'             " tag completion goodness
+Plugin 'httplog'                          " http syntax highlighting
+Plugin 'terryma/vim-multiple-cursors'     " allows for multiple cursor usage
+Plugin 'Lokaltog/vim-easymotion'          " Vim Jumping Motions
+Plugin 'plasticboy/vim-markdown'          " markdown syntax
+Plugin 'altercation/vim-colors-solarized' "Solarized Colors
+
+" Plugin 'wincent/Command-T'              " Will get this working someday
 
 " Plugin 'Lokaltog/vim-easymotion'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -165,3 +167,9 @@ python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages")
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+
+" Colorscheme
+
+syntax enable
+set background=dark
+colorscheme solarized
