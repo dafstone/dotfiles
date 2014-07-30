@@ -33,6 +33,7 @@
 .node-gyp/
 .npm/
 .pem/
+.pow/
 .pry_history
 .oh-my-zsh/
 .pip/
