@@ -22,7 +22,7 @@ export UPDATE_ZSH_DAYS=7                # Update every week
 
 # zsh configuration
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
