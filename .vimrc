@@ -50,6 +50,11 @@ set smartcase		" Unless explict match
 
 filetype plugin indent on     " required
 
+" Set autoreading to on
+
+set autoread
+au CursorHold * checktime
+
 " allow backspacing over everything in insert mode
 
 syntax on															" syntax on for good
