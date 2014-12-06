@@ -27,6 +27,7 @@ Plugin 'terryma/vim-multiple-cursors'     " allows for multiple cursor usage
 Plugin 'Lokaltog/vim-easymotion'          " Vim Jumping Motions
 Plugin 'plasticboy/vim-markdown'          " markdown syntax
 Plugin 'altercation/vim-colors-solarized' "Solarized Colors
+Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this must also be installed on the system
 
 " Plugin 'wincent/Command-T'              " Will get this working someday
 
