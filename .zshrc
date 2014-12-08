@@ -63,3 +63,5 @@ compinit
 # Adding vim behavior to shell
 
 bindkey -v
+
+source ~/.zsh_alias

@@ -20,7 +20,6 @@ eval "$(/Users/stone/.chefvm/bin/chefvm init -)"
 
 # Aliases
 
-. ~/.bash_aliases
 . ~/.git_aliases
 
 
