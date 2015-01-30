@@ -167,6 +167,13 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" Custom Commands
+function Slack() range
+  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | slacker -c general')
+endfunction
+
+com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
+
 " PowerLine configuration
 
 let g:airline_powerline_fonts = 1

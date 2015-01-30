@@ -19,6 +19,7 @@ alias lsa="ls -alh"
 # ZSH Globals
 
 export UPDATE_ZSH_DAYS=7                # Update every week
+export EDTIOR=/usr/local/bin/vim
 
 # zsh configuration
 
