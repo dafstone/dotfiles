@@ -4,7 +4,7 @@ export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 
 # Plugin Definition
 
-plugins=(git ruby rails mosh osx web-search vi-mode)
+plugins=(git ruby rails mosh osx web-search vi-mode gulp)
 
 # ZSH Options
 
