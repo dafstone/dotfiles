@@ -1,6 +1,9 @@
 # PATH Stuff
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR=/usr/local/bin/vim
 
 # Plugin Definition
 
@@ -19,7 +22,6 @@ alias lsa="ls -alh"
 # ZSH Globals
 
 export UPDATE_ZSH_DAYS=7                # Update every week
-export EDTIOR=/usr/local/bin/vim
 
 # zsh configuration
 
@@ -37,15 +39,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# Set vim as editor
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

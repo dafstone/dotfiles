@@ -29,21 +29,11 @@ Plugin 'plasticboy/vim-markdown'          " markdown syntax
 Plugin 'altercation/vim-colors-solarized' " Solarized Colors
 Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this must also be installed on the system
 Plugin 'jelera/vim-javascript-syntax'     " js syntax
-Plugin 'moll/vim-node'                    "
+Plugin 'moll/vim-node'                    " Node powertools
+Plugin 'kien/ctrlp.vim'                    " Node powertools
 
-" Plugin 'wincent/Command-T'              " Will get this working someday
 
 " Plugin 'Lokaltog/vim-easymotion'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Plugin 'FuzzyFinder'
-" scripts not on GitHub
-" Plugin ':git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
 
 " Search Configuration
 
@@ -96,13 +86,18 @@ set hidden														" handle multiple buffers better
 
 " set clipboard=unnamed
 
-" Trying to get vim splits working in tmux
 
 set mouse+=a
 if &term =~ '^screen'
-    " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
+
+" CtrlP Configuration
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*/node_modules/*
 
 " NERDTree Configuration 
 
