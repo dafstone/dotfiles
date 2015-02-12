@@ -31,9 +31,7 @@ Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this m
 Plugin 'jelera/vim-javascript-syntax'     " js syntax
 Plugin 'moll/vim-node'                    " Node powertools
 Plugin 'kien/ctrlp.vim'                    " Node powertools
-
-
-" Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 " Search Configuration
 
