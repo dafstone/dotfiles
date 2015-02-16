@@ -37,6 +37,8 @@ HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
 source $ZSH/oh-my-zsh.sh
 
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 # User configuration
 
 

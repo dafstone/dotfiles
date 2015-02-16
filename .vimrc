@@ -30,8 +30,9 @@ Plugin 'altercation/vim-colors-solarized' " Solarized Colors
 Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this must also be installed on the system
 Plugin 'jelera/vim-javascript-syntax'     " js syntax
 Plugin 'moll/vim-node'                    " Node powertools
-Plugin 'kien/ctrlp.vim'                    " Node powertools
-Plugin 'Lokaltog/vim-easymotion'
+Plugin 'kien/ctrlp.vim'                   " Node powertools
+Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
+Plugin 'groenewege/vim-less'              " Vim LESS Support
 
 " Search Configuration
 
