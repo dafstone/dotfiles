@@ -33,6 +33,7 @@ Plugin 'moll/vim-node'                    " Node powertools
 Plugin 'kien/ctrlp.vim'                   " Node powertools
 Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 Plugin 'groenewege/vim-less'              " Vim LESS Support
+Plugin 'faith/vim-go'                     " Vim Go Support
 
 " Search Configuration
 

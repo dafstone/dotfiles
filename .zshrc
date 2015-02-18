@@ -4,10 +4,14 @@ export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Plugin Definition
 
 plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundler)
+
+# Go Path Stuff
+export GOPATH=$HOME/host/go
 
 # ZSH Options
 
