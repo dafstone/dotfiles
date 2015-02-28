@@ -36,30 +36,12 @@ Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
 Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
 
-" NeoComplete Configuration
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-inoremap <expr><C-g>  neocomplete#undo_completion()
-inoremap <expr><C-l>  neocomplete#complete_common_string()
-inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Enable OmniCompletion
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=csscomplete#CompleteTags
-
 
 
 " Search Configuration
 
 set ignorecase		" Case Insensitivity
 set smartcase		" Unless explict match
-
-filetype plugin indent on     " required
 
 " Set autoreading to on
 
@@ -141,12 +123,28 @@ endif
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  " Stone : Commented out existing filetype settings
-  "  filetype plugin indent on
+" OmniCompletion
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+
+" Enable OmniCompletion
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" NeoComplete Configuration
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><C-g>  neocomplete#undo_completion()
+inoremap <expr><C-l>  neocomplete#complete_common_string()
+inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
