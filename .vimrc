@@ -33,7 +33,26 @@ Plugin 'moll/vim-node'                    " Node powertools
 Plugin 'kien/ctrlp.vim'                   " Node powertools
 Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 Plugin 'groenewege/vim-less'              " Vim LESS Support
-Plugin 'faith/vim-go'                     " Vim Go Support
+Plugin 'fatih/vim-go'                     " Vim Go Support
+Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
+
+" NeoComplete Configuration
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><C-g>  neocomplete#undo_completion()
+inoremap <expr><C-l>  neocomplete#complete_common_string()
+inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable OmniCompletion
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=csscomplete#CompleteTags
+
+
 
 " Search Configuration
 
