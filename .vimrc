@@ -11,7 +11,7 @@ set noswapfile                          " turning off swapfiles
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 set t_Co=256
-
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
@@ -36,7 +36,9 @@ Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
 Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
 
-
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Search Configuration
 
@@ -185,12 +187,7 @@ com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 
 " PowerLine configuration
 
-let g:airline_powerline_fonts = 1
-
-python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages")
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" let g:airline_powerline_fonts = 1
 
 " Colorscheme
 
