@@ -2,12 +2,8 @@
 	"segments": {
 		"left": [
 			{
-				"function": "powerline.segments.common.vcs.branch",
-				"priority": 40
-			},
-			{
 				"function": "powerline.segments.common.net.hostname",
-				"priority": 10
+				"priority": 11
 			},
 			{
 				"function": "powerline.segments.common.env.user",
@@ -20,6 +16,10 @@
 			{
 				"function": "powerline.segments.shell.cwd",
 				"priority": 10
+			},
+			{
+				"function": "powerline.segments.common.vcs.branch",
+				"priority": 15
 			},
 			{
 				"function": "powerline.segments.shell.jobnum",

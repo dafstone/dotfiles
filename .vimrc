@@ -35,6 +35,11 @@ Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
 Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
+Plugin 'scrooloose/syntastic'             "Inline Syntax Checking"
+
+" PHP & Wordpress
+Plugin 'shawncplus/phpcomplete.vim'       "PHP OmniCompletion"
+
 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
