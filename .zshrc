@@ -29,7 +29,7 @@ export UPDATE_ZSH_DAYS=7                # Update every week
 
 # zsh configuration
 
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
@@ -40,6 +40,7 @@ HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
 
 source $ZSH/oh-my-zsh.sh
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
