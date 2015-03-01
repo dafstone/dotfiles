@@ -42,6 +42,7 @@ Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
 
 set ignorecase		" Case Insensitivity
 set smartcase		" Unless explict match
+filetype plugin indent on
 
 " Set autoreading to on
 
@@ -124,26 +125,25 @@ endif
 if has("autocmd")
 
 " OmniCompletion
-filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 " Enable OmniCompletion
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " NeoComplete Configuration
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-inoremap <expr><C-g>  neocomplete#undo_completion()
-inoremap <expr><C-l>  neocomplete#complete_common_string()
-inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-g>  neocomplete#undo_completion()
+" inoremap <expr><C-l>  neocomplete#complete_common_string()
+" inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+" inoremap <expr><C-y>  neocomplete#close_popup()
+" inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
   " Put these in an autocmd group, so that we can delete them easily.
