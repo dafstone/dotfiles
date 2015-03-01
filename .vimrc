@@ -38,7 +38,11 @@ Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
 Plugin 'scrooloose/syntastic'             "Inline Syntax Checking"
 
 " PHP & Wordpress
-Plugin 'shawncplus/phpcomplete.vim'       "PHP OmniCompletion"
+Plugin 'StanAngeloff/php.vim'             " PHP Syntax
+Plugin 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
+Plugin 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
+
+
 
 
 python from powerline.vim import setup as powerline_setup
@@ -91,10 +95,19 @@ set shiftwidth=2										" number of spaces for auto-indent
 set laststatus=2											" Show the statusline all the time
 set hidden														" handle multiple buffers better
 
-" Experimental
+" StatusLine Config
 
-" set clipboard=unnamed
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+" Enable Mouse Support with SGR (xterm 1006 mouse support for more lines)
 
 set mouse+=a
 if has("mouse_sgr")
