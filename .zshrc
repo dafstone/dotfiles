@@ -36,11 +36,12 @@ HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
 if [ -z "$ITERM_SESSION_ID" ]; then
   ZSH_THEME="flazz"
+  source $ZSH/oh-my-zsh.sh
 else
+  source $ZSH/oh-my-zsh.sh
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
-source $ZSH/oh-my-zsh.sh
 
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
