@@ -29,18 +29,19 @@ export UPDATE_ZSH_DAYS=7                # Update every week
 
 # zsh configuration
 
-# ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
-# DISABLE_CORRECTION="true"             # Disable command autocorrection
-# CASE_SENSITIVE="true"                 # Case sensitive completion
-# DISABLE_UNTRACKED_FILES_DIRTY="true"  # Don't show untracked files
-# ZSH_CUSTOM=/path/to/new-custom-folder # Use alternative custom folder
+# Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
 
+if [ -z "$ITERM_SESSION_ID" ]; then
+  ZSH_THEME="flazz"
+else
+  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 source $ZSH/oh-my-zsh.sh
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 

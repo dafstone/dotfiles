@@ -11,7 +11,6 @@ set noswapfile                          " turning off swapfiles
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 set t_Co=256
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
@@ -42,12 +41,15 @@ Plugin 'StanAngeloff/php.vim'             " PHP Syntax
 Plugin 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
 Plugin 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
 
+" If ITerm2 Session Found Set statusline accordingly
+
+if empty($ITERM_SESSION_ID)
+  set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+else
+  set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+endif
 
 
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
 " Search Configuration
 
