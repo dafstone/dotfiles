@@ -8,7 +8,7 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Plugin Definition
 
-plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundler)
+plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundler autojump zsh-syntax-highlighting)
 
 # Go Path Stuff
 export GOPATH=$HOME/host/go
