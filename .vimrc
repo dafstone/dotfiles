@@ -27,7 +27,6 @@ Plugin 'Lokaltog/vim-easymotion'          " Vim Jumping Motions
 Plugin 'plasticboy/vim-markdown'          " markdown syntax
 Plugin 'altercation/vim-colors-solarized' " Solarized Colors
 Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this must also be installed on the system
-Plugin 'jelera/vim-javascript-syntax'     " js syntax
 Plugin 'moll/vim-node'                    " Node powertools
 Plugin 'kien/ctrlp.vim'                   " Node powertools
 Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
@@ -40,6 +39,13 @@ Plugin 'scrooloose/syntastic'             "Inline Syntax Checking"
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
 Plugin 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
 Plugin 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
+
+" JavaScript
+" Plugin 'jelera/vim-javascript-syntax'     " js syntax
+Plugin 'pangloss/vim-javascript'          " Alternate JS Syntax
+Plugin 'mxw/vim-jsx'                      " JSX
+
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 " If ITerm2 Session Found Set statusline accordingly
 
