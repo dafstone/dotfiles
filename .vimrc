@@ -55,7 +55,10 @@ else
   set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 endif
 
+" HTML Tidy (requires tidy on the system)
 
+:command Thtml :%!tidy -q -i --show-errors 0
+let g:syntastic_html_tidy_ignore_errors = [ 'content occurs after end of body' ]
 
 " Search Configuration
 
