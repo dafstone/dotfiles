@@ -45,6 +45,9 @@ Plugin 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direc
 Plugin 'pangloss/vim-javascript'          " Alternate JS Syntax
 Plugin 'mxw/vim-jsx'                      " JSX
 
+" Anisble
+Plugin 'chase/vim-ansible-yaml'
+
 let g:syntastic_javascript_checkers = ['jsxhint']
 
 " If ITerm2 Session Found Set statusline accordingly
