@@ -34,6 +34,7 @@ Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
 Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
 Plugin 'scrooloose/syntastic'             "Inline Syntax Checking"
+Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
