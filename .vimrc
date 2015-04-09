@@ -4,13 +4,23 @@
 
 set nocompatible                        " original vi has nothing to do with my world
 filetype off                            " no legacy filetype handling
-set number                              " turn on linenumbers
+set relativenumber                      " turn on relative numbers
 set noswapfile                          " turning off swapfiles
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 set t_Co=256
+
+" Not used yet - setting up numbertoggles
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
@@ -230,12 +240,7 @@ endfunction
 
 com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 
-" PowerLine configuration
-
-" let g:airline_powerline_fonts = 1
-
 " Colorscheme
 
-syntax enable
 set background=dark
 colorscheme solarized
