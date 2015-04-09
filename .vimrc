@@ -33,8 +33,9 @@ Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
 Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
-Plugin 'scrooloose/syntastic'             "Inline Syntax Checking"
+Plugin 'scrooloose/syntastic'             " Inline Syntax Checking
 Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
+Plugin 'mhinz/vim-startify'               " Start Screen
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
@@ -69,6 +70,10 @@ let g:syntastic_html_tidy_ignore_errors = [ 'content occurs after end of body' ]
 set ignorecase		" Case Insensitivity
 set smartcase		" Unless explict match
 filetype plugin indent on
+
+" Colorscheme Compatiblility
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
 
 " Set autoreading to on
 
