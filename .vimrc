@@ -73,7 +73,6 @@ filetype plugin indent on
 
 " Colorscheme Compatiblility
 let g:solarized_termcolors=256
-let g:solarized_contrast="high"
 
 " Set autoreading to on
 
