@@ -1,6 +1,5 @@
 # PATH Stuff
 export ZSH=$HOME/.oh-my-zsh
-export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
