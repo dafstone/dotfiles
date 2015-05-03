@@ -240,7 +240,10 @@ endfunction
 
 com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 
-nnoremap <Leader>n :NERDTree<CR>
+
+nnoremap <Leader>n :NERDTree<CR>                        " NERDTree sidebar.
+nnoremap <Leader>/ :noh<CR>                        " NERDTree sidebar.
+
 
 " Colorscheme
 
