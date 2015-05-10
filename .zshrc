@@ -33,6 +33,7 @@ export UPDATE_ZSH_DAYS=7                # Update every week
 
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
+bindkey '^r' history-incremental-search-backward   # History Search
 
 # Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
 
