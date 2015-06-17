@@ -70,4 +70,5 @@ compinit
 
 bindkey -v
 
+source ~/.dotfiles/k/k.sh
 source ~/.zsh_alias
