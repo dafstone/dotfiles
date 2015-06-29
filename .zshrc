@@ -1,9 +1,11 @@
 # PATH Stuff
 export ZSH=$HOME/.oh-my-zsh
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+source ~/.profile_secrets
 
 # Plugin Definition
 
@@ -45,12 +47,16 @@ else
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
-
+eval "$(rbenv init -)"
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-# User configuration
+# brew nvm
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# User configuration
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
