@@ -1,0 +1,1 @@
+alias docker_remove_stopped_containers='docker rm $(docker ps -aq)'
