@@ -46,6 +46,7 @@ Plugin 'scrooloose/syntastic'             " Inline Syntax Checking
 Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
 Plugin 'mhinz/vim-startify'               " Start Screen
 Plugin 'airblade/vim-gitgutter'           " Gitgutter
+Plugin 'christoomey/vim-tmux-navigator'
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
