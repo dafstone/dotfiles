@@ -15,7 +15,7 @@ plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundl
 export GOPATH=$HOME/host/go
 
 # Local Docker
-eval `boot2docker shellinit 2>/dev/null`
+# eval `boot2docker shellinit 2>/dev/null`
 
 # ZSH Options
 
