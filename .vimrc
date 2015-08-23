@@ -31,6 +31,7 @@ Plugin 'tpope/vim-fugitive'               " git commands
 Plugin 'scrooloose/nerdtree'              " file management
 Plugin 'tpope/vim-rails.git'              " rails powerup
 Plugin 'tpope/vim-ragtag.git'             " tag completion goodness
+Plugin 'tpope/vim-surround'               " Surrounding
 Plugin 'httplog'                          " http syntax highlighting
 Plugin 'terryma/vim-multiple-cursors'     " allows for multiple cursor usage
 Plugin 'plasticboy/vim-markdown'          " markdown syntax
