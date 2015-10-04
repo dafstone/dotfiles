@@ -3,39 +3,18 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-
-source ~/.profile_secrets
-
-# Plugin Definition
-
-plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundler autojump zsh-syntax-highlighting)
 
 # Go Path Stuff
 export GOPATH=$HOME/host/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+source ~/.profile_secrets
 
-# Local Docker
-# eval `boot2docker shellinit 2>/dev/null`
+# Oh-my-zsh Configuration
 
-# ZSH Options
-
-setopt correct
-
-# Aliases 
-alias zshcfg="vim ~/.zshrc"
-alias vimcfg="vim ~/.vimrc"
-alias lsa="ls -alh"
-
-
-# ZSH Globals
-
+plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundler autojump zsh-syntax-highlighting)
 export UPDATE_ZSH_DAYS=7                # Update every week
-
-# zsh configuration
-
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
-bindkey '^r' history-incremental-search-backward   # History Search
 
 # Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
 
@@ -47,22 +26,27 @@ else
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
-eval "$(rbenv init -)"
+# ZSH Options
 
+setopt correct
+bindkey '^r' history-incremental-search-backward   # History Search
+bindkey -v
+
+# Configuration Aliases 
+alias zshcfg="vim ~/.zshrc"
+alias vimcfg="vim ~/.vimrc"
+
+# Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-# brew nvm
+# Init rbenv
+
+eval "$(rbenv init -)"
+
+# Init nvm
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-
-# User configuration
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/stone/.zshrc'
@@ -74,8 +58,9 @@ compinit
 
 # Adding vim behavior to shell
 
-bindkey -v
-
 source ~/.dotfiles/k/k.sh
+
+# Alias Files
+
 source ~/.zsh_alias
 source ~/.docker_aliases
