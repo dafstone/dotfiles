@@ -11,7 +11,7 @@ source ~/.profile_secrets
 
 # Oh-my-zsh Configuration
 
-plugins=(git ruby rails mosh osx web-search vi-mode gulp vagrant tmux brew bundler autojump zsh-syntax-highlighting)
+plugins=(git mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
