@@ -48,6 +48,7 @@ Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
 Plugin 'mhinz/vim-startify'               " Start Screen
 Plugin 'airblade/vim-gitgutter'           " Gitgutter
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'chrisbra/csv.vim'
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
