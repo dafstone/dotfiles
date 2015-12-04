@@ -49,6 +49,7 @@ Plugin 'mhinz/vim-startify'               " Start Screen
 Plugin 'airblade/vim-gitgutter'           " Gitgutter
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chrisbra/csv.vim'
+Plugin 'kballard/vim-swift'
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
