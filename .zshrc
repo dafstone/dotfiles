@@ -7,6 +7,7 @@ export EDITOR=/usr/local/bin/vim
 # Go Path Stuff
 export GOPATH=$HOME/host/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/Users/stone/host/kubernetes/kubernetes/cluster/
 source ~/.profile_secrets
 
 # Oh-my-zsh Configuration
@@ -64,3 +65,12 @@ source ~/.dotfiles/k/k.sh
 
 source ~/.zsh_alias
 source ~/.docker_aliases
+
+#cowsay configuration
+COWPATH=/Users/stone/host/emn-control/cows
+ANSIBLE_COW_SELECTION=brahmin
+
+
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
