@@ -74,3 +74,5 @@ ANSIBLE_COW_SELECTION=brahmin
 unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
+
+eval $(docker-machine env dev)
