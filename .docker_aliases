@@ -1,2 +1,3 @@
 alias docker_remove_stopped_containers='docker rm $(docker ps -aq)'
 alias docker_remove_untagged_images='docker images | grep "^<none>" | awk '{print $3}''
+alias dm='docker-machine'
