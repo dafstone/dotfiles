@@ -122,7 +122,7 @@ set hlsearch													" Highlight Matches
 set expandtab													" Set to use spaces not tabs
 set title															" Set the terminal title
 set autoindent												" autoindent on CR
-set copyindent												" copy previous indenting
+" set copyindent												" copy previous indenting
 set tabstop=2													" Global Tab Width
 set shiftwidth=2										" number of spaces for auto-indent
 set laststatus=2											" Show the statusline all the time
@@ -225,8 +225,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 else
 
-  set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -245,11 +243,12 @@ endfunction
 com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 
 
-nnoremap <Leader>n :NERDTree<CR>                        " NERDTree sidebar.
-nnoremap <Leader>/ :noh<CR>                        " Clear Search
-nnoremap <Leader>q :tabp<CR>                        " Clear Search
-nnoremap <Leader>w :tabn<CR>                        " Clear Search
-nnoremap <Leader>r :so $MYVIMRC<CR>                        " Clear Search
+nnoremap <Leader>n :NERDTree<CR>                    " NERDTree sidebar.
+nnoremap <Leader>/ :noh<CR>                         " Clear Search
+nnoremap <Leader>q :tabp<CR>                        " Previous tab
+nnoremap <Leader>w :tabn<CR>                        " Next Tab
+nnoremap <Leader>r :so $MYVIMRC<CR>                 " Reload Vimrm 
+
 
 
 " Colorscheme
