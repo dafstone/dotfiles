@@ -60,6 +60,7 @@ compinit
 # Adding vim behavior to shell
 
 source ~/.dotfiles/k/k.sh
+source ~/.dotfiles/bundler-exec.sh
 
 # Alias Files
 
