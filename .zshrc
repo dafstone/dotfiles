@@ -40,11 +40,12 @@ alias vimcfg="vim ~/.vimrc"
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-# Init rbenv
+# Init rbenv, pyenv, & nvm
 
 eval "$(rbenv init -)"
-
-# Init nvm
+eval "$(pyenv init -)" 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
