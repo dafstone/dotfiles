@@ -36,6 +36,7 @@ bindkey -v
 # Configuration Aliases 
 alias zshcfg="vim ~/.zshrc"
 alias vimcfg="vim ~/.vimrc"
+alias install_global_gems="bundle install --system --gemfile ~/Gemfile_Global"
 
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -77,4 +78,4 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
-eval $(docker-machine env dev)
+# eval $(docker-machine env dev)
