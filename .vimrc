@@ -254,8 +254,9 @@ com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 nnoremap <Leader>n :NERDTree<CR>                    " NERDTree sidebar.
 nnoremap <Leader>/ :noh<CR>                         " Clear Search
 nnoremap <Leader>q :tabp<CR>                        " Previous tab
-nnoremap <Leader>w :tabn<CR>                        " Next Tab
-nnoremap <Leader>r :so $MYVIMRC<CR>                 " Reload Vimrm 
+nnoremap <Leader>] :tabn<CR>                        " Next Tab
+nnoremap <Leader>[ :tabn<CR>                        " Next Tab
+nnoremap <Leader>r :so $MYVIMRC<CR>                 " Reload Vimrc 
 
 
 
