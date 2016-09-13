@@ -86,3 +86,5 @@ ANSIBLE_COW_SELECTION=brahmin
 unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
