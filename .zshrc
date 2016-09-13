@@ -12,7 +12,7 @@ source ~/.profile_secrets
 
 # Oh-my-zsh Configuration
 
-plugins=(git mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws)
+plugins=(git mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
@@ -30,8 +30,17 @@ fi
 # ZSH Options
 
 setopt correct
-bindkey '^r' history-incremental-search-backward   # History Search
+# bindkey '^r' history-incremental-search-backward   # History Search
 bindkey -v
+
+# History Substring Search
+
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Configuration Aliases 
 alias zshcfg="vim ~/.zshrc"
