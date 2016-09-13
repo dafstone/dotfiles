@@ -50,6 +50,7 @@ Plugin 'airblade/vim-gitgutter'           " Gitgutter
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chrisbra/csv.vim'
 Plugin 'kballard/vim-swift'
+Plugin 'elixir-lang/vim-elixir'           " Elixir Language Support
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
@@ -145,7 +146,7 @@ let g:syntastic_check_on_wq = 0
 set mouse+=a
 if has("mouse_sgr")
   set ttymouse=sgr
-elseif
+else
   set ttymouse=xterm2
 endif
 
