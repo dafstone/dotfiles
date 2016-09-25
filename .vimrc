@@ -120,7 +120,6 @@ set hlsearch													" Highlight Matches
 
 " Other
 
-set expandtab													" Set to use spaces not tabs
 set title															" Set the terminal title
 set autoindent												" autoindent on CR
 " set copyindent												" copy previous indenting
@@ -265,3 +264,4 @@ nnoremap <Leader>r :so $MYVIMRC<CR>                 " Reload Vimrc
 
 set background=dark
 colorscheme solarized
+set expandtab													" Set to use spaces not tabs
