@@ -257,6 +257,8 @@ nnoremap <Leader>q :tabp<CR>                        " Previous tab
 nnoremap <Leader>] :tabn<CR>                        " Next Tab
 nnoremap <Leader>[ :tabn<CR>                        " Next Tab
 nnoremap <Leader>r :so $MYVIMRC<CR>                 " Reload Vimrc 
+vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
+vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
 
 
 
