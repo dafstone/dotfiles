@@ -12,7 +12,7 @@ source ~/.profile_secrets
 
 # Oh-my-zsh Configuration
 
-plugins=(git mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search)
+plugins=(git mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
