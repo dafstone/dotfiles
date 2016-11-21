@@ -37,6 +37,7 @@ Plugin 'terryma/vim-multiple-cursors'     " allows for multiple cursor usage
 Plugin 'plasticboy/vim-markdown'          " markdown syntax
 Plugin 'altercation/vim-colors-solarized' " Solarized Colors
 Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this must also be installed on the system
+Plugin 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
 Plugin 'moll/vim-node'                    " Node powertools
 Plugin 'kien/ctrlp.vim'                   " Node powertools
 Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
@@ -73,6 +74,11 @@ if empty($ITERM_SESSION_ID)
   set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 else
   set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+endif
+
+" Configuration for Ack with AG
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 " HTML Tidy (requires tidy on the system)

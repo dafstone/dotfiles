@@ -1,3 +1,6 @@
 [submodule "k"]
 	path = k
 	url = https://github.com/supercrabtree/k
+[submodule "zsh-navigation-tools"]
+	path = zsh-navigation-tools
+	url = https://github.com/psprint/zsh-navigation-tools.git

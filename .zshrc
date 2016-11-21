@@ -7,7 +7,6 @@ export EDITOR=/usr/local/bin/vim
 # Go Path Stuff
 export GOPATH=$HOME/host/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:/Users/stone/host/kubernetes/kubernetes/cluster/
 source ~/.profile_secrets
 
 # Oh-my-zsh Configuration
@@ -87,5 +86,8 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
 source ~/.dotfiles/zsh_additions/_docker.zsh
+
+source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
