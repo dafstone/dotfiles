@@ -91,3 +91,4 @@ source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source <(kubectl completion zsh)
