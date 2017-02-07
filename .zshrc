@@ -6,8 +6,13 @@ export EDITOR=/usr/local/bin/vim
 
 # Go Path Stuff
 export GOPATH=$HOME/host/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/host/go/bin
 source ~/.profile_secrets
+
+# Android Studio
+export ANDROID_HOME=${HOME}/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # Oh-my-zsh Configuration
 
