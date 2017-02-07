@@ -24,5 +24,24 @@ if (gemfile_check == false) || (gemfile_check == true && use_local_irb_gems_chec
   FancyIrb.start
 end
 
+module IrbReload
+  unless defined?(reload)
+    alias_method :original_load, :load
+  
+    $files_loaded = []
+    $files_loaded.push(IRB.conf[:LOAD_MODULES]).flatten!
+  
+    def load(file)
+      $files_loaded << file
+      original_load file
+    end
+    def reload
+      $files_loaded.each { |f| original_load f }
+    end
+  end
+end
+
+include IrbReload
+
 puts ".irbrc load complete on " + Time.now.to_s  
 
