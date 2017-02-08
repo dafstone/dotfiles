@@ -3,10 +3,11 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
+export SRC_DIR=src
 
 # Go Path Stuff
-export GOPATH=$HOME/host/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/host/go/bin
+export GOPATH=$HOME/$SRC_DIR/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/$SRC_DIR/go/bin
 source ~/.profile_secrets
 
 # Android Studio
@@ -83,7 +84,7 @@ source ~/.zsh_alias
 source ~/.docker_aliases
 
 #cowsay configuration
-COWPATH=/Users/stone/host/emn-control/cows
+COWPATH=/Users/stone/$SRC_DIR/emn-control/cows
 ANSIBLE_COW_SELECTION=brahmin
 
 unalias run-help
@@ -94,6 +95,17 @@ source ~/.dotfiles/zsh_additions/_docker.zsh
 
 source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/stone/src/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/stone/src/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/stone/src/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/stone/src/google-cloud-sdk/completion.zsh.inc'
+fi
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source <(kubectl completion zsh)
+
