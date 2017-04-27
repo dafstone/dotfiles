@@ -1,9 +1,25 @@
+show_timings=false
+start_time=$(gdate +%s%N)
+if $show_timings = true; then
+  echo "Start:" $start_time
+fi
+
+shelltiming () {
+  sincestart=`expr $(gdate +%s%N) - $start_time`
+  if $show_timings = true; then
+    echo $1 "- ms since start:" `expr $sincestart / 1000000`
+  fi
+}
+
+shelltiming "Preinitialization"
+
 # PATH Stuff
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
 export SRC_DIR=src
+
 
 # Go Path Stuff
 export GOPATH=$HOME/$SRC_DIR/go
@@ -32,6 +48,8 @@ else
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
+shelltiming "Init Oh-my-zsh"
+
 # ZSH Options
 
 setopt correct
@@ -52,18 +70,28 @@ alias zshcfg="vim ~/.zshrc"
 alias vimcfg="vim ~/.vimrc"
 alias install_global_gems="bundle install --system --gemfile ~/Gemfile_Global"
 
+shelltiming "Set Aliases and Navigation"
+
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+shelltiming "Init Autojump"
 
 # Init rbenv, pyenv, & nvm
 
 eval "$(rbenv init -)"
+shelltiming "Init Rbenv"
+
 eval "$(pyenv init -)" 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+shelltiming "Init Pyenv"
+
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+source /usr/local/opt/nvm/nvm.sh
+
+shelltiming "Init nvm"
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/stone/.zshrc'
@@ -72,16 +100,20 @@ autoload -U zmv
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+shelltiming "Init compinit additions"
 
 # Adding vim behavior to shell
 
 source ~/.dotfiles/k/k.sh
 source ~/.dotfiles/bundler-exec.sh
 
+shelltiming "Init K and Bundler-Exec"
 # Alias Files
 
 source ~/.zsh_alias
 source ~/.docker_aliases
+
+shelltiming "Sourced zsh and docker aliases"
 
 #cowsay configuration
 COWPATH=/Users/stone/$SRC_DIR/emn-control/cows
@@ -92,20 +124,29 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
 source ~/.dotfiles/zsh_additions/_docker.zsh
+shelltiming "source docker zsh"
 
 source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+shelltiming "source zsh navigation tools"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/stone/src/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/stone/src/google-cloud-sdk/path.zsh.inc'
 fi
 
+
 # The next line enables shell command completion for gcloud.
 if [ -f /Users/stone/src/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/stone/src/google-cloud-sdk/completion.zsh.inc'
 fi
 
+shelltiming "Init Google Cloud zsh"
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+shelltiming "Init ZSH Syntax Highlighting"
+
 source <(kubectl completion zsh)
+shelltiming "Init Kubectl"
 
