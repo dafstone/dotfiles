@@ -65,6 +65,8 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+bindkey -s ^v 'vim .^M'
+
 # Configuration Aliases 
 alias zshcfg="vim ~/.zshrc"
 alias vimcfg="vim ~/.vimrc"
@@ -82,11 +84,13 @@ shelltiming "Init Autojump"
 eval "$(rbenv init -)"
 shelltiming "Init Rbenv"
 
-eval "$(pyenv init -)" 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# eval "$(pyenv init -)" 
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-shelltiming "Init Pyenv"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+shelltiming "Init Python"
 
 export NVM_DIR=~/.nvm
 source /usr/local/opt/nvm/nvm.sh
