@@ -52,6 +52,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chrisbra/csv.vim'
 Plugin 'kballard/vim-swift'
 Plugin 'elixir-lang/vim-elixir'           " Elixir Language Support
+Plugin 'jiangmiao/auto-pairs'             " Auto Pairing
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
