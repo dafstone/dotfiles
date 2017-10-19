@@ -73,11 +73,30 @@ Plugin 'chase/vim-ansible-yaml'
 
 " If ITerm2 Session Found Set statusline accordingly
 
+
 if empty($ITERM_SESSION_ID)
   set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 else
   set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 endif
+
+" Ale Statusline -- To Come
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+
+set statusline=%{LinterStatus()}
 
 " Configuration for Ack with AG
 if executable('ag')
