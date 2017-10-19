@@ -54,6 +54,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'kballard/vim-swift'
 Plugin 'elixir-lang/vim-elixir'           " Elixir Language Support
 Plugin 'jiangmiao/auto-pairs'             " Auto Pairing
+Plugin 'nathanaelkane/vim-indent-guides'  " Indent Guides
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
@@ -68,7 +69,7 @@ Plugin 'mxw/vim-jsx'                      " JSX
 " Anisble
 Plugin 'chase/vim-ansible-yaml'
 
-let g:syntastic_javascript_checkers = ['jsxhint']
+" let g:syntastic_javascript_checkers = ['jsxhint']
 
 " If ITerm2 Session Found Set statusline accordingly
 
@@ -82,6 +83,14 @@ endif
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+" Indent Guide Configuration
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=Grey27 ctermbg=238
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 
 " HTML Tidy (requires tidy on the system)
 
