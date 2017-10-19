@@ -44,7 +44,8 @@ Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
 Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
-Plugin 'scrooloose/syntastic'             " Inline Syntax Checking
+" Plugin 'scrooloose/syntastic'             " Inline Syntax Checking
+Plugin 'w0rp/ale'                       " New Async Syntax Checking
 Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
 Plugin 'mhinz/vim-startify'               " Start Screen
 Plugin 'airblade/vim-gitgutter'           " Gitgutter
