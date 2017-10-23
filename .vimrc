@@ -29,6 +29,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'tpope/vim-fugitive'               " git commands
 Plugin 'scrooloose/nerdtree'              " file management
+Plugin 'scrooloose/nerdcommenter'         " Comment Management
 Plugin 'tpope/vim-rails.git'              " rails powerup
 Plugin 'tpope/vim-ragtag.git'             " tag completion goodness
 Plugin 'tpope/vim-surround'               " Surrounding
@@ -115,6 +116,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 
 :command Thtml :%!tidy -q -i --show-errors 0
 let g:syntastic_html_tidy_ignore_errors = [ 'content occurs after end of body' ]
+
+" Coment Configuration
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 " Search Configuration
 
