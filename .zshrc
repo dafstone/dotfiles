@@ -13,7 +13,9 @@ shelltiming () {
 
 shelltiming "Preinitialization"
 
+
 # PATH Stuff
+PATH="/usr/local/bin:$(getconf PATH)"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
@@ -30,6 +32,7 @@ source ~/.profile_secrets
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
 
 # Oh-my-zsh Configuration
 
@@ -74,10 +77,6 @@ alias install_global_gems="bundle install --system --gemfile ~/Gemfile_Global"
 
 shelltiming "Set Aliases and Navigation"
 
-# Init Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-shelltiming "Init Autojump"
 
 # Init rbenv, pyenv, & nvm
 
@@ -92,11 +91,14 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 shelltiming "Init Python"
 
-export NVM_DIR=~/.nvm
-source /usr/local/opt/nvm/nvm.sh
-
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"
 shelltiming "Init nvm"
 
+# Init Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+shelltiming "Init Autojump"
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/stone/.zshrc'
 
