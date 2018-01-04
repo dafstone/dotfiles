@@ -33,6 +33,7 @@ Plugin 'scrooloose/nerdcommenter'         " Comment Management
 Plugin 'tpope/vim-rails.git'              " rails powerup
 Plugin 'tpope/vim-ragtag.git'             " tag completion goodness
 Plugin 'tpope/vim-surround'               " Surrounding
+Plugin 'tpope/vim-endwise'                " Auto-End for VIM
 Plugin 'httplog'                          " http syntax highlighting
 Plugin 'terryma/vim-multiple-cursors'     " allows for multiple cursor usage
 Plugin 'plasticboy/vim-markdown'          " markdown syntax
