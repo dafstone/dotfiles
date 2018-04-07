@@ -291,7 +291,7 @@ endif
 "   echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | slacker -c emn-slack-ops')
 " endfunction
 
-com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
+" com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 
 
 nnoremap <Leader>n :NERDTree<CR>                    " NERDTree sidebar.
