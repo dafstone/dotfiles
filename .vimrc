@@ -115,7 +115,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 
 " HTML Tidy (requires tidy on the system)
 
-:command Thtml :%!tidy -q -i --show-errors 0
+:command! Thtml :%!tidy -q -i --show-errors 0
 let g:syntastic_html_tidy_ignore_errors = [ 'content occurs after end of body' ]
 
 " Coment Configuration
@@ -287,9 +287,9 @@ if !exists(":DiffOrig")
 endif
 
 " Custom Commands
-function Slack() range
-  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | slacker -c emn-slack-ops')
-endfunction
+" function Slack() range
+"   echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | slacker -c emn-slack-ops')
+" endfunction
 
 com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
 
