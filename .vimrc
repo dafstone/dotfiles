@@ -299,9 +299,14 @@ nnoremap <Leader>/ :noh<CR>                         " Clear Search
 nnoremap <Leader>q :tabp<CR>                        " Previous tab
 nnoremap <Leader>] :tabn<CR>                        " Next Tab
 nnoremap <Leader>[ :tabn<CR>                        " Next Tab
-nnoremap <Leader>r :so $MYVIMRC<CR>                 " Reload Vimrc 
+nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
+
+" Go Commands
+
+autocmd FileType go noremap<buffer> <Leader>d :GoDoc<CR> <C-w>L<CR> :vertical resize -20<CR>
+autocmd FileType go noremap<buffer> <Leader>r :GoRun
 
 
 
