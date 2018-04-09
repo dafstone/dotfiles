@@ -57,6 +57,7 @@ Plugin 'kballard/vim-swift'
 Plugin 'elixir-lang/vim-elixir'           " Elixir Language Support
 Plugin 'jiangmiao/auto-pairs'             " Auto Pairing
 Plugin 'nathanaelkane/vim-indent-guides'  " Indent Guides
+Plugin 'majutsushi/tagbar'                 " Tagbar for ctags
 
 " PHP & Wordpress
 Plugin 'StanAngeloff/php.vim'             " PHP Syntax
@@ -248,6 +249,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType go setlocal omnifunc=go#complete#Complete
 
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
@@ -299,6 +301,7 @@ nnoremap <Leader>/ :noh<CR>                         " Clear Search
 nnoremap <Leader>q :tabp<CR>                        " Previous tab
 nnoremap <Leader>] :tabn<CR>                        " Next Tab
 nnoremap <Leader>[ :tabn<CR>                        " Next Tab
+nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
@@ -306,8 +309,8 @@ vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
 " Go Commands
 
 autocmd FileType go noremap<buffer> <Leader>d :GoDoc<CR> <C-w>L<CR> :vertical resize -20<CR>
-autocmd FileType go noremap<buffer> <Leader>r :GoRun
-
+autocmd FileType go noremap<buffer> <Leader>r :GoRun<CR>
+autocmd FileType go noremap<buffer> <Leader>b :GoBuild<CR>
 
 
 " Colorscheme
