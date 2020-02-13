@@ -83,11 +83,11 @@ shelltiming "Set Aliases and Navigation"
 eval "$(rbenv init -)"
 shelltiming "Init Rbenv"
 
-# eval "$(pyenv init -)" 
 # export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+eval "$(pyenv init -)" 
 
 shelltiming "Init Python"
 
@@ -111,7 +111,6 @@ shelltiming "Init compinit additions"
 # Adding vim behavior to shell
 
 source ~/.dotfiles/k/k.sh
-source ~/.dotfiles/bundler-exec.sh
 
 shelltiming "Init K and Bundler-Exec"
 # Alias Files
@@ -156,3 +155,11 @@ shelltiming "Init ZSH Syntax Highlighting"
 source <(kubectl completion zsh)
 shelltiming "Init Kubectl"
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+shelltiming "Init Krew"
+
+source ~/.dotfiles/bundler-exec.sh
+source ~/.envkeys
+
+# Uncomment for helm2
+# export PATH="/usr/local/opt/helm@2/bin:$PATH"
