@@ -45,7 +45,7 @@ Plugin 'kien/ctrlp.vim'                   " Node powertools
 Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 Plugin 'groenewege/vim-less'              " Vim LESS Support
 Plugin 'fatih/vim-go'                     " Vim Go Support
-Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
+" Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
 " Plugin 'scrooloose/syntastic'             " Inline Syntax Checking
 Plugin 'w0rp/ale'                       " New Async Syntax Checking
 Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
@@ -303,6 +303,7 @@ nnoremap <Leader>] :tabn<CR>                        " Next Tab
 nnoremap <Leader>[ :tabn<CR>                        " Next Tab
 nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
+nnoremap <Leader>j :%!python -m json.tool<CR>                 " Reload Vimrc 
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
 

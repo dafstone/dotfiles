@@ -36,7 +36,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # Oh-my-zsh Configuration
 
-plugins=(git mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
+plugins=(git git-flow-avh npm nvm npx mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
@@ -48,7 +48,8 @@ if [ -z "$ITERM_SESSION_ID" ]; then
   source $ZSH/oh-my-zsh.sh
 else
   source $ZSH/oh-my-zsh.sh
-  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+ . /Users/stone/.pyenv/versions/3.8.3/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+#  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
 shelltiming "Init Oh-my-zsh"
@@ -117,12 +118,9 @@ shelltiming "Init K and Bundler-Exec"
 
 source ~/.zsh_alias
 source ~/.docker_aliases
+source ~/.dotfiles/.local_aliases
 
 shelltiming "Sourced zsh and docker aliases"
-
-#cowsay configuration
-COWPATH=/Users/stone/$SRC_DIR/emn-control/cows
-ANSIBLE_COW_SELECTION=brahmin
 
 unalias run-help
 autoload run-help
@@ -158,8 +156,27 @@ shelltiming "Init Kubectl"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 shelltiming "Init Krew"
 
+export CLOUDSDK_PYTHON="$(which python)"
+
 source ~/.dotfiles/bundler-exec.sh
 source ~/.envkeys
 
 # Uncomment for helm2
 # export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/stone/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/stone/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/stone/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/stone/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
