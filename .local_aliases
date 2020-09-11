@@ -1,0 +1,2 @@
+alias gfpullall='git checkout develop; git pull; git checkout master; git pull'
+alias gfpushall='git push --all; git push --tags'
