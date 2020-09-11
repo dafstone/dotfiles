@@ -6,71 +6,61 @@ set nocompatible                        " original vi has nothing to do with my 
 filetype off                            " no legacy filetype handling
 set relativenumber                      " turn on relative numbers
 set noswapfile                          " turning off swapfiles
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 set t_Co=256
 
-" Not used yet - setting up numbertoggles
+" Initialize vim-plug
 
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
-" Plugins
+Plug 'tpope/vim-fugitive'               " git commands
+Plug 'scrooloose/nerdtree'              " file management
+Plug 'scrooloose/nerdcommenter'         " Comment Management
+Plug 'tpope/vim-rails'                  " rails powerup
+Plug 'tpope/vim-ragtag'                 " tag completion goodness
+Plug 'tpope/vim-surround'               " Surrounding
+Plug 'tpope/vim-endwise'                " Auto-End for VIM
+Plug 'plasticboy/vim-markdown'          " markdown syntax
+Plug 'altercation/vim-colors-solarized' " Solarized Colors
+Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
+Plug 'moll/vim-node'                    " Node powertools
+Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
+Plug 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
+Plug 'groenewege/vim-less'              " Vim LESS Support
+Plug 'fatih/vim-go'                     " Vim Go Support
+Plug 'nginx/nginx', {'rtp': 'contrib/vim/'}
+Plug 'mhinz/vim-startify'               " Start Screen
+Plug 'airblade/vim-gitgutter'           " Gitgutter
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'chrisbra/csv.vim'
+Plug 'kballard/vim-swift'
+Plug 'elixir-lang/vim-elixir'           " Elixir Language Support
+Plug 'jiangmiao/auto-pairs'             " Auto Pairing
+Plug 'nathanaelkane/vim-indent-guides'  " Indent Guides
+Plug 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
 
-Plugin 'tpope/vim-fugitive'               " git commands
-Plugin 'scrooloose/nerdtree'              " file management
-Plugin 'scrooloose/nerdcommenter'         " Comment Management
-Plugin 'tpope/vim-rails.git'              " rails powerup
-Plugin 'tpope/vim-ragtag.git'             " tag completion goodness
-Plugin 'tpope/vim-surround'               " Surrounding
-Plugin 'tpope/vim-endwise'                " Auto-End for VIM
-Plugin 'httplog'                          " http syntax highlighting
-Plugin 'terryma/vim-multiple-cursors'     " allows for multiple cursor usage
-Plugin 'plasticboy/vim-markdown'          " markdown syntax
-Plugin 'altercation/vim-colors-solarized' " Solarized Colors
-Plugin 'rking/ag.vim'                     " Adding Silver Searcher - note this must also be installed on the system
-Plugin 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
-Plugin 'moll/vim-node'                    " Node powertools
-Plugin 'kien/ctrlp.vim'                   " Node powertools
-Plugin 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
-Plugin 'groenewege/vim-less'              " Vim LESS Support
-Plugin 'fatih/vim-go'                     " Vim Go Support
-" Plugin 'shougo/neocomplete.vim'           " Vim neocomplete
-" Plugin 'scrooloose/syntastic'             " Inline Syntax Checking
-Plugin 'w0rp/ale'                       " New Async Syntax Checking
-Plugin 'nginx/nginx', {'rtp': 'contrib/vim/'}
-Plugin 'mhinz/vim-startify'               " Start Screen
-Plugin 'airblade/vim-gitgutter'           " Gitgutter
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'chrisbra/csv.vim'
-Plugin 'kballard/vim-swift'
-Plugin 'elixir-lang/vim-elixir'           " Elixir Language Support
-Plugin 'jiangmiao/auto-pairs'             " Auto Pairing
-Plugin 'nathanaelkane/vim-indent-guides'  " Indent Guides
-Plugin 'majutsushi/tagbar'                 " Tagbar for ctags
+call plug#end()
 
+" Disabled Plugins
+" Plug 'httplog'                          " http syntax highlighting
+" Plug 'majutsushi/tagbar'                " Tagbar for ctags
 " PHP & Wordpress
-Plugin 'StanAngeloff/php.vim'             " PHP Syntax
-Plugin 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
-Plugin 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
-
+" Plug 'StanAngeloff/php.vim'             " PHP Syntax
+" Plug 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
 " JavaScript
 " Plugin 'jelera/vim-javascript-syntax'     " js syntax
-Plugin 'pangloss/vim-javascript'          " Alternate JS Syntax
-Plugin 'mxw/vim-jsx'                      " JSX
-
+" Plug 'pangloss/vim-javascript'          " Alternate JS Syntax
+" Plug 'mxw/vim-jsx'                      " JSX
+"
 " Anisble
-Plugin 'chase/vim-ansible-yaml'
+" Plug 'chase/vim-ansible-yaml'
+
+
 
 " let g:syntastic_javascript_checkers = ['jsxhint']
 
@@ -126,8 +116,8 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Search Configuration
 
-set ignorecase		" Case Insensitivity
-set smartcase		" Unless explict match
+set ignorecase		          " Case Insensitivity
+set smartcase		            " Unless explict match
 filetype plugin indent on
 
 " Colorscheme Compatiblility
