@@ -16,8 +16,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 call plug#begin('~/.vim/plugged')
 
+" Deoplete
+" pynvim must be installed: :python3 import pynvim and :python3 import neovim
+
+Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
+Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/neopairs.vim'
+Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'roxma/vim-hug-neovim-rpc'         " nvim like rpc support
+Plug 'roxma/nvim-yarp'                  " More nvim emulation
 Plug 'tpope/vim-fugitive'               " git commands
 Plug 'scrooloose/nerdtree'              " file management
 Plug 'scrooloose/nerdcommenter'         " Comment Management
@@ -59,7 +70,7 @@ call plug#end()
 "
 " Anisble
 " Plug 'chase/vim-ansible-yaml'
-
+let g:deoplete#enable_at_startup = 1
 
 
 " let g:syntastic_javascript_checkers = ['jsxhint']
