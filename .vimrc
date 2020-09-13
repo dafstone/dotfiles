@@ -22,9 +22,10 @@ call plug#begin('~/.vim/plugged')
 " Deoplete
 " pynvim must be installed: :python3 import pynvim and :python3 import neovim
 
+
 Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
 Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neopairs.vim'
+Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'roxma/vim-hug-neovim-rpc'         " nvim like rpc support
