@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
 "
 Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
+Plug 'Shougo/neco-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
 Plug 'dense-analysis/ale'
