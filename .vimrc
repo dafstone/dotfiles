@@ -26,6 +26,9 @@ Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
 Plug 'Shougo/neco-vim'
 Plug 'takkii/Bignyanco'
+Plug 'Shougo/neco-syntax'
+Plug 'deoplete-plugins/deoplete-go'
+Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
 Plug 'dense-analysis/ale'
