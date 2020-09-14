@@ -21,9 +21,10 @@ call plug#begin('~/.vim/plugged')
 
 " Deoplete
 " pynvim must be installed: :python3 import pynvim and :python3 import neovim
-
-
+"
 Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
@@ -58,31 +59,23 @@ Plug 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct 
 
 call plug#end()
 
-" Disabled Plugins
-" Plug 'httplog'                          " http syntax highlighting
-" Plug 'majutsushi/tagbar'                " Tagbar for ctags
-" PHP & Wordpress
-" Plug 'StanAngeloff/php.vim'             " PHP Syntax
-" Plug 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
-" JavaScript
-" Plugin 'jelera/vim-javascript-syntax'     " js syntax
-" Plug 'pangloss/vim-javascript'          " Alternate JS Syntax
-" Plug 'mxw/vim-jsx'                      " JSX
-"
-" Anisble
-" Plug 'chase/vim-ansible-yaml'
 let g:deoplete#enable_at_startup = 1
 
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
 
-" let g:syntastic_javascript_checkers = ['jsxhint']
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale', 'foobar'],
+" \})
+
 
 " If ITerm2 Session Found Set statusline accordingly
-
-
 if empty($ITERM_SESSION_ID)
   set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 else
-  set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+  set rtp+=~/Library/Python/3.8/lib/python/site-packages/powerline/bindings/vim
 endif
 
 " Ale Statusline -- To Come
@@ -241,23 +234,17 @@ inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " OmniCompletion
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 " Enable OmniCompletion
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType go setlocal omnifunc=go#complete#Complete
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType go setlocal omnifunc=go#complete#Complete
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -290,14 +277,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" Custom Commands
-" function Slack() range
-"   echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | slacker -c emn-slack-ops')
-" endfunction
-
-" com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
-
-
 nnoremap <Leader>n :NERDTree<CR>                    " NERDTree sidebar.
 nnoremap <Leader>/ :noh<CR>                         " Clear Search
 nnoremap <Leader>q :tabp<CR>                        " Previous tab
@@ -315,9 +294,9 @@ autocmd FileType go noremap<buffer> <Leader>d :GoDoc<CR> <C-w>L<CR> :vertical re
 autocmd FileType go noremap<buffer> <Leader>r :GoRun<CR>
 autocmd FileType go noremap<buffer> <Leader>b :GoBuild<CR>
 
-
 " Colorscheme
 
 set background=dark
 colorscheme solarized
 set expandtab													" Set to use spaces not tabs
+
