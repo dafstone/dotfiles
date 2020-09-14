@@ -27,6 +27,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
 Plug 'Shougo/neco-vim'
 Plug 'takkii/Bignyanco'
 Plug 'Shougo/neco-syntax'
+Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
 Plug 'deoplete-plugins/deoplete-go'
 Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
