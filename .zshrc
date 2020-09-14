@@ -33,7 +33,6 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-
 # Oh-my-zsh Configuration
 
 plugins=(git git-flow-avh npm nvm npx mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
@@ -48,8 +47,7 @@ if [ -z "$ITERM_SESSION_ID" ]; then
   source $ZSH/oh-my-zsh.sh
 else
   source $ZSH/oh-my-zsh.sh
- . /Users/stone/.pyenv/versions/3.8.3/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
-#  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+   . /Users/stone/Library/Python/3.8/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
 shelltiming "Init Oh-my-zsh"
