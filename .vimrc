@@ -45,7 +45,7 @@ Plug 'tpope/vim-ragtag'                 " tag completion goodness
 Plug 'tpope/vim-surround'               " Surrounding
 Plug 'tpope/vim-endwise'                " Auto-End for VIM
 Plug 'plasticboy/vim-markdown'          " markdown syntax
-Plug 'altercation/vim-colors-solarized' " Solarized Colors
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
 Plug 'moll/vim-node'                    " Node powertools
 Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
@@ -284,7 +284,6 @@ autocmd FileType go noremap<buffer> <Leader>b :GoBuild<CR>
 
 " Colorscheme
 
-set background=dark
-colorscheme solarized
+colorscheme nord
 set expandtab													" Set to use spaces not tabs
 
