@@ -30,7 +30,7 @@ Plug 'Shougo/neco-syntax'
 Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
 Plug 'deoplete-plugins/deoplete-go'
 Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
@@ -72,9 +72,9 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \}
 
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale', 'foobar'],
-" \})
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
 
 
 " If ITerm2 Session Found Set statusline accordingly
@@ -83,7 +83,7 @@ if empty($ITERM_SESSION_ID)
 else
   set rtp+=~/Library/Python/3.8/lib/python/site-packages/powerline/bindings/vim
 endif
-
+ 
 " Ale Statusline -- To Come
 
 function! LinterStatus() abort
@@ -101,7 +101,7 @@ endfunction
 
 
 set statusline=%{LinterStatus()}
-
+ 
 " Configuration for Ack with AG
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -118,9 +118,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 " HTML Tidy (requires tidy on the system)
 
 :command! Thtml :%!tidy -q -i --show-errors 0
-let g:syntastic_html_tidy_ignore_errors = [ 'content occurs after end of body' ]
-
-" Coment Configuration
+ 
+" Comment Configuration
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDTrimTrailingWhitespace = 1
@@ -167,23 +166,15 @@ set hlsearch													" Highlight Matches
 
 set title															" Set the terminal title
 set autoindent												" autoindent on CR
-" set copyindent												" copy previous indenting
 set tabstop=2													" Global Tab Width
 set shiftwidth=2										" number of spaces for auto-indent
 set laststatus=2											" Show the statusline all the time
 set hidden														" handle multiple buffers better
-
+ 
 " StatusLine Config
 
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
 
 " Enable Mouse Support with SGR (xterm 1006 mouse support for more lines)
 
@@ -207,8 +198,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|web/wp\|web/app/plugins\|web/app/mu-plugins\|web/app/uploads',
   \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
   \ }
-" set wildignore+=*/tmp/*,*/node_modules/*
-
+set wildignore+=*/tmp/*,*/node_modules/*
+ 
 " NERDTree Configuration 
 
 let NERDTreeShowHidden=1
@@ -228,15 +219,6 @@ inoremap <C-U> <C-G>u<C-U>
 if has("autocmd")
 
 
-" NeoComplete Configuration
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-" inoremap <expr><C-g>  neocomplete#undo_completion()
-" inoremap <expr><C-l>  neocomplete#complete_common_string()
-" inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y>  neocomplete#close_popup()
-" inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " OmniCompletion
@@ -251,7 +233,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
 " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " autocmd FileType go setlocal omnifunc=go#complete#Complete
-
+" 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -274,7 +256,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 else
 
 endif " has("autocmd")
-
+ 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -292,7 +274,7 @@ nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 nnoremap <Leader>j :%!python -m json.tool<CR>                 " Reload Vimrc 
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
-vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
+vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
 
 " Go Commands
 
