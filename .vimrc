@@ -30,7 +30,8 @@ Plug 'Shougo/neco-syntax'
 Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
 Plug 'deoplete-plugins/deoplete-go'
 Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-ruby/vim-ruby'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
@@ -72,9 +73,14 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \}
 
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
+let g:ale_linters_ignore = {
+\ 'ruby': ['rubocop'],
+\}
+
+
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale'],
+" \})
 
 
 " If ITerm2 Session Found Set statusline accordingly
