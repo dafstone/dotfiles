@@ -1,1 +1,4 @@
 scripts/*
+.vim/autoload
+.vim/plugged
+.vim/ftplugin

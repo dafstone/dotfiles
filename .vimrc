@@ -21,10 +21,20 @@ call plug#begin('~/.vim/plugged')
 
 " Deoplete
 " pynvim must be installed: :python3 import pynvim and :python3 import neovim
-
+"
 Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
+Plug 'Shougo/neco-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'takkii/Bignyanco'
+Plug 'Shougo/neco-syntax'
+Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
+Plug 'deoplete-plugins/deoplete-go'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'vim-ruby/vim-ruby'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neopairs.vim'
+Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'roxma/vim-hug-neovim-rpc'         " nvim like rpc support
@@ -37,7 +47,7 @@ Plug 'tpope/vim-ragtag'                 " tag completion goodness
 Plug 'tpope/vim-surround'               " Surrounding
 Plug 'tpope/vim-endwise'                " Auto-End for VIM
 Plug 'plasticboy/vim-markdown'          " markdown syntax
-Plug 'altercation/vim-colors-solarized' " Solarized Colors
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
 Plug 'moll/vim-node'                    " Node powertools
 Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
@@ -57,33 +67,31 @@ Plug 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct 
 
 call plug#end()
 
-" Disabled Plugins
-" Plug 'httplog'                          " http syntax highlighting
-" Plug 'majutsushi/tagbar'                " Tagbar for ctags
-" PHP & Wordpress
-" Plug 'StanAngeloff/php.vim'             " PHP Syntax
-" Plug 'shawncplus/phpcomplete.vim'       " PHP OmniCompletion
-" JavaScript
-" Plugin 'jelera/vim-javascript-syntax'     " js syntax
-" Plug 'pangloss/vim-javascript'          " Alternate JS Syntax
-" Plug 'mxw/vim-jsx'                      " JSX
-"
-" Anisble
-" Plug 'chase/vim-ansible-yaml'
 let g:deoplete#enable_at_startup = 1
 
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
 
-" let g:syntastic_javascript_checkers = ['jsxhint']
+let g:ale_linters_ignore = {
+\ 'ruby': ['rubocop'],
+\ 'javascript': ['eslint'],
+\}
+
+
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale'],
+" \})
+
 
 " If ITerm2 Session Found Set statusline accordingly
-
-
 if empty($ITERM_SESSION_ID)
   set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 else
-  set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+  set rtp+=~/Library/Python/3.8/lib/python/site-packages/powerline/bindings/vim
 endif
-
+ 
 " Ale Statusline -- To Come
 
 function! LinterStatus() abort
@@ -101,7 +109,7 @@ endfunction
 
 
 set statusline=%{LinterStatus()}
-
+ 
 " Configuration for Ack with AG
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -118,9 +126,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 " HTML Tidy (requires tidy on the system)
 
 :command! Thtml :%!tidy -q -i --show-errors 0
-let g:syntastic_html_tidy_ignore_errors = [ 'content occurs after end of body' ]
-
-" Coment Configuration
+ 
+" Comment Configuration
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDTrimTrailingWhitespace = 1
@@ -167,23 +174,15 @@ set hlsearch													" Highlight Matches
 
 set title															" Set the terminal title
 set autoindent												" autoindent on CR
-" set copyindent												" copy previous indenting
 set tabstop=2													" Global Tab Width
 set shiftwidth=2										" number of spaces for auto-indent
 set laststatus=2											" Show the statusline all the time
 set hidden														" handle multiple buffers better
-
+ 
 " StatusLine Config
 
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
 
 " Enable Mouse Support with SGR (xterm 1006 mouse support for more lines)
 
@@ -207,8 +206,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|web/wp\|web/app/plugins\|web/app/mu-plugins\|web/app/uploads',
   \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
   \ }
-" set wildignore+=*/tmp/*,*/node_modules/*
-
+set wildignore+=*/tmp/*,*/node_modules/*
+ 
 " NERDTree Configuration 
 
 let NERDTreeShowHidden=1
@@ -228,36 +227,21 @@ inoremap <C-U> <C-G>u<C-U>
 if has("autocmd")
 
 
-" NeoComplete Configuration
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-" inoremap <expr><C-g>  neocomplete#undo_completion()
-" inoremap <expr><C-l>  neocomplete#complete_common_string()
-" inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y>  neocomplete#close_popup()
-" inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " OmniCompletion
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 " Enable OmniCompletion
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType go setlocal omnifunc=go#complete#Complete
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType go setlocal omnifunc=go#complete#Complete
+" 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -280,7 +264,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 else
 
 endif " has("autocmd")
-
+ 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -288,14 +272,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
-" Custom Commands
-" function Slack() range
-"   echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | slacker -c emn-slack-ops')
-" endfunction
-
-" com -range=% -nargs=0 Slack :<line1>,<line2>call Slack()
-
 
 nnoremap <Leader>n :NERDTree<CR>                    " NERDTree sidebar.
 nnoremap <Leader>/ :noh<CR>                         " Clear Search
@@ -306,7 +282,7 @@ nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 nnoremap <Leader>j :%!python -m json.tool<CR>                 " Reload Vimrc 
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
-vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR
+vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
 
 " Go Commands
 
@@ -314,9 +290,8 @@ autocmd FileType go noremap<buffer> <Leader>d :GoDoc<CR> <C-w>L<CR> :vertical re
 autocmd FileType go noremap<buffer> <Leader>r :GoRun<CR>
 autocmd FileType go noremap<buffer> <Leader>b :GoBuild<CR>
 
-
 " Colorscheme
 
-set background=dark
-colorscheme solarized
+colorscheme solarized8
 set expandtab													" Set to use spaces not tabs
+
