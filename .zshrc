@@ -18,6 +18,7 @@ shelltiming "Preinitialization"
 PATH="/usr/local/bin:$(getconf PATH)"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+export PATH=~/src/mf-cli:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
 export SRC_DIR=src
@@ -47,9 +48,9 @@ if [ -z "$ITERM_SESSION_ID" ]; then
   source $ZSH/oh-my-zsh.sh
 else
   source $ZSH/oh-my-zsh.sh
-   . /Users/stone/Library/Python/3.8/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+  . /Users/stone/Library/Python/3.8/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
-
+ 
 shelltiming "Init Oh-my-zsh"
 
 # ZSH Options
