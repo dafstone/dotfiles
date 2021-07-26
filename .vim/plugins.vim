@@ -52,6 +52,8 @@ Plug 'jiangmiao/auto-pairs'             " Auto Pairing
 Plug 'nathanaelkane/vim-indent-guides'  " Indent Guides
 Plug 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
 Plug 'iberianpig/tig-explorer.vim'      " Tig in vim
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()
 
