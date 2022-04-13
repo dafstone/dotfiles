@@ -41,8 +41,7 @@ shelltiming "more paths"
 # Oh-my-zsh Configuration
 
 # plugins=(git git-flow-avh npm nvm npx mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
-# plugins=(osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
-plugins=(git git-flow-avh macos vi-mode tmux brew bundler autojump docker history-substring-search)
+plugins=(git git-flow-avh macos vi-mode tmux brew bundler autojump docker history-substring-search kubectl)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
@@ -114,7 +113,7 @@ shelltiming "Init compinit additions"
 
 # Adding vim behavior to shell
 
-source ~/.dotfiles/k/k.sh
+# source ~/.dotfiles/k/k.sh
 
 shelltiming "Init K and Bundler-Exec"
 # Alias Files
@@ -149,7 +148,7 @@ fi
 shelltiming "Init Google Cloud zsh"
 
 
-source <(kubectl completion zsh)
+alias kubecompletion="source <(kubectl completion zsh)"
 shelltiming "Init Kubectl Completion"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
