@@ -54,6 +54,9 @@ Plug 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct 
 Plug 'iberianpig/tig-explorer.vim'      " Tig in vim
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'zivyangll/git-blame.vim'
+Plug 'rhysd/git-messenger.vim'
+
 
 call plug#end()
 

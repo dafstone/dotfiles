@@ -23,23 +23,31 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
 export SRC_DIR=src
 
+shelltiming "Paths"
+
 
 # Go Path Stuff
 export GOPATH=$HOME/$SRC_DIR/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/$SRC_DIR/go/bin
 source ~/.profile_secrets
 
+shelltiming "more paths"
+
 # Android Studio
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+# export ANDROID_HOME=${HOME}/Library/Android/sdk
+# export PATH=${PATH}:${ANDROID_HOME}/tools
+# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # Oh-my-zsh Configuration
 
-plugins=(git git-flow-avh npm nvm npx mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
+# plugins=(git git-flow-avh npm nvm npx mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
+# plugins=(osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
+plugins=(git git-flow-avh macos vi-mode tmux brew bundler autojump docker history-substring-search)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
+
+shelltiming "event more paths"
 
 # Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
 
@@ -91,10 +99,6 @@ eval "$(pyenv init --path)"
 
 shelltiming "Init Python"
 
-export NVM_DIR=$HOME/.nvm
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"
-shelltiming "Init nvm"
-
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
@@ -144,13 +148,9 @@ fi
 
 shelltiming "Init Google Cloud zsh"
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-shelltiming "Init ZSH Syntax Highlighting"
 
 source <(kubectl completion zsh)
-shelltiming "Init Kubectl"
+shelltiming "Init Kubectl Completion"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 shelltiming "Init Krew"
@@ -159,6 +159,13 @@ export CLOUDSDK_PYTHON="$(which python)"
 
 source ~/.dotfiles/bundler-exec.sh
 source ~/.envkeys
+
+export PATH=~/.nvm/versions/node/v14.16.1/bin:$PATH
+export NVM_DIR=$HOME/.nvm
+[[ -s "$NVM_DIR/nvm.sh"  ]] && source "$NVM_DIR/nvm.sh" --no-use
+
+shelltiming "Init nvm"
+
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -180,6 +187,11 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# 
+# shelltiming "Init ZSH Syntax Highlighting"
 
 export AWS_PROFILE=ahr
 

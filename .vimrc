@@ -232,6 +232,7 @@ nnoremap <Leader>[ :tabn<CR>                        " Next Tab
 nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 nnoremap <Leader>j :%!python -m json.tool<CR>                 " Reload Vimrc 
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
 
