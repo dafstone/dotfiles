@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 show_timings=false
 start_time=$(gdate +%s%N)
 if $show_timings = true; then
@@ -50,13 +57,16 @@ shelltiming "event more paths"
 
 # Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
 
-if [ -z "$ITERM_SESSION_ID" ]; then
-  ZSH_THEME="flazz"
-  source $ZSH/oh-my-zsh.sh
-else
-  source $ZSH/oh-my-zsh.sh
-  . /Users/stone/Library/Python/3.8/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-fi
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
+
+# if [ -z "$ITERM_SESSION_ID" ]; then
+#   ZSH_THEME="flazz"
+#   source $ZSH/oh-my-zsh.sh
+# else
+#   source $ZSH/oh-my-zsh.sh
+#   . /Users/stone/Library/Python/3.8/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+# fi
  
 shelltiming "Init Oh-my-zsh"
 
@@ -214,3 +224,6 @@ eval "$(direnv hook zsh)"
 # fi
 # unset __conda_setup
 # # <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

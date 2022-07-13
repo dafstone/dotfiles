@@ -1,10 +1,11 @@
-" Dan Stone (dan@evolvingmedia.net) vim configuration file
+" Dan Stone (dan.stone@fgh.com) vim configuration file
 
 " Use Vim settings, rather than Vi settings (much better!).
 
-set nocompatible                        " original vi has nothing to do with my world
+set nocompatible                        
 filetype off                            " no legacy filetype handling
 set relativenumber                      " turn on relative numbers
+set number                              " but lets see the number I'm on
 set noswapfile                          " turning off swapfiles
 set t_Co=256
 
