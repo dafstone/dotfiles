@@ -158,7 +158,7 @@ fi
 shelltiming "Init Google Cloud zsh"
 
 
-alias kubecompletion="source <(kubectl completion zsh)"
+source <(kubectl completion zsh)
 shelltiming "Init Kubectl Completion"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
