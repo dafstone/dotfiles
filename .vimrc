@@ -1,6 +1,4 @@
-" Dan Stone (dan.stone@fgh.com) vim configuration file
-
-" Use Vim settings, rather than Vi settings (much better!).
+" Dan Stone (dan.stone@fgsglobal.com) vimrc
 
 set nocompatible                        
 filetype off                            " no legacy filetype handling
@@ -18,24 +16,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 runtime plugins.vim
-
-let g:deoplete#enable_at_startup = 1
-
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-
-let g:ale_linters_ignore = {
-\ 'ruby': ['rubocop'],
-\ 'javascript': ['eslint'],
-\}
-
-
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale'],
-" \})
-
+runtime ddc-config.vim
 
 " If ITerm2 Session Found Set statusline accordingly
 if empty($ITERM_SESSION_ID)
@@ -43,6 +24,7 @@ if empty($ITERM_SESSION_ID)
 else
   set rtp+=~/Library/Python/3.8/lib/python/site-packages/powerline/bindings/vim
 endif
+
  
 " Ale Statusline -- To Come
 

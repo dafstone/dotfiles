@@ -9,17 +9,22 @@ call plug#begin('~/.vim/plugged')
 " Deoplete
 " pynvim must be installed: :python3 import pynvim and :python3 import neovim
 "
-Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
+" Plug 'Shougo/deoplete.nvim'             " Deoplete Completion Framework
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
 Plug 'Shougo/neco-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'takkii/Bignyanco'
 Plug 'Shougo/neco-syntax'
 Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
-Plug 'deoplete-plugins/deoplete-go'
-Plug 'deoplete-plugins/deoplete-jedi'
+
+" ddc-vim
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddc-around'
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+
 Plug 'vim-ruby/vim-ruby'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/context_filetype.vim'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
