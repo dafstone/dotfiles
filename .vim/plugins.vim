@@ -38,6 +38,7 @@ Plug 'tpope/vim-rails'                  " rails powerup
 Plug 'tpope/vim-ragtag'                 " tag completion goodness
 Plug 'tpope/vim-surround'               " Surrounding
 Plug 'tpope/vim-endwise'                " Auto-End for VIM
+Plug 'tpope/vim-repeat'                 " Auto-End for VIM
 Plug 'plasticboy/vim-markdown'          " markdown syntax
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.

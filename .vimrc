@@ -230,3 +230,4 @@ autocmd FileType go noremap<buffer> <Leader>b :GoBuild<CR>
 colorscheme solarized8
 set expandtab													" Set to use spaces not tabs
 
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
