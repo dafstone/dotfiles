@@ -1,8 +1,6 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-#
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -27,10 +25,16 @@ shelltiming "Preinitialization"
 PATH="/usr/local/bin:$(getconf PATH)"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
-export PATH=~/src/mf-cli:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/usr/local/bin/vim
 export SRC_DIR=src
+
+plugins=(git git-flow-avh macos vi-mode brew bundler autojump docker history-substring-search kubectl)
+export UPDATE_ZSH_DAYS=7                # Update every week
+COMPLETION_WAITING_DOTS="true"          # Waiting dots
+HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
 
 shelltiming "Paths"
 
@@ -49,27 +53,12 @@ shelltiming "more paths"
 
 # Oh-my-zsh Configuration
 
-# plugins=(git git-flow-avh npm nvm npx mosh rails osx web-search vi-mode gulp vagrant tmux brew bundler autojump aws history-substring-search docker)
-plugins=(git git-flow-avh macos vi-mode tmux brew bundler autojump docker history-substring-search kubectl)
-export UPDATE_ZSH_DAYS=7                # Update every week
-COMPLETION_WAITING_DOTS="true"          # Waiting dots
-HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
 
 shelltiming "event more paths"
 
 # Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-source $ZSH/oh-my-zsh.sh
 
-# if [ -z "$ITERM_SESSION_ID" ]; then
-#   ZSH_THEME="flazz"
-#   source $ZSH/oh-my-zsh.sh
-# else
-#   source $ZSH/oh-my-zsh.sh
-#   . /Users/stone/Library/Python/3.8/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-# fi
- 
 shelltiming "Init Oh-my-zsh"
 
 # ZSH Options
@@ -211,3 +200,4 @@ eval "$(direnv hook zsh)"
 USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
