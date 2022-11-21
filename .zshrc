@@ -40,26 +40,9 @@ shelltiming "Paths"
 
 
 # Go Path Stuff
-export GOPATH=$HOME/$SRC_DIR/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/$SRC_DIR/go/bin
+# export GOPATH=$HOME/$SRC_DIR/go
+# export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/$SRC_DIR/go/bin
 source ~/.profile_secrets
-
-shelltiming "more paths"
-
-# Android Studio
-# export ANDROID_HOME=${HOME}/Library/Android/sdk
-# export PATH=${PATH}:${ANDROID_HOME}/tools
-# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-# Oh-my-zsh Configuration
-
-
-shelltiming "event more paths"
-
-# Check for Iterm2 to start Powerline. If not, an oh-my-zsh theme
-
-
-shelltiming "Init Oh-my-zsh"
 
 # ZSH Options
 
@@ -85,14 +68,10 @@ alias install_global_gems="bundle install --system --gemfile ~/Gemfile_Global"
 
 shelltiming "Set Aliases and Navigation"
 
-
 # Init rbenv, pyenv, & nvm
 
 eval "$(rbenv init -)"
 shelltiming "Init Rbenv"
-
-# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 eval "$(pyenv init --path)" 
@@ -135,22 +114,16 @@ shelltiming "source docker zsh"
 source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 shelltiming "source zsh navigation tools"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/stone/src/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/stone/src/google-cloud-sdk/path.zsh.inc'
-fi
-
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/stone/src/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/stone/src/google-cloud-sdk/completion.zsh.inc'
-fi
 
 shelltiming "Init Google Cloud zsh"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dan.stone/src/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.stone/src/google-cloud-sdk/completion.zsh.inc'; fi
 
 source <(kubectl completion zsh)
-shelltiming "Init Kubectl Completion"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 shelltiming "Init Krew"
@@ -160,12 +133,10 @@ export CLOUDSDK_PYTHON="$(which python)"
 source ~/.dotfiles/bundler-exec.sh
 source ~/.envkeys
 
-# export PATH=~/.nvm/versions/node/v14.16.1/bin:$PATH
 export NVM_DIR=$HOME/.nvm
 [[ -s "$NVM_DIR/nvm.sh"  ]] && source "$NVM_DIR/nvm.sh" --no-use
 
 shelltiming "Init nvm"
-
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -188,11 +159,6 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# 
-# shelltiming "Init ZSH Syntax Highlighting"
-
 export AWS_PROFILE=ahr
 
 eval "$(direnv hook zsh)"
@@ -201,3 +167,4 @@ USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
