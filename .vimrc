@@ -7,6 +7,7 @@ set number                              " but lets see the number I'm on
 set noswapfile                          " turning off swapfiles
 set t_Co=256
 
+
 " Initialize vim-plug
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -41,8 +42,9 @@ function! LinterStatus() abort
     \)
 endfunction
 
-
 set statusline=%{LinterStatus()}
+
+call ddc#custom#patch_global('ui', 'native')
  
 " Configuration for Ack with AG
 if executable('ag')
