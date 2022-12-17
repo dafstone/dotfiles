@@ -24,6 +24,7 @@ Plug 'Shougo/ddc-ui-native'
 Plug 'Shougo/ddc-around'
 Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
+Plug 'LumaKernel/ddc-source-file'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'Shougo/context_filetype.vim'
