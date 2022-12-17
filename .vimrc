@@ -19,15 +19,9 @@ endif
 runtime plugins.vim
 runtime ddc-config.vim
 
-" If ITerm2 Session Found Set statusline accordingly
-if empty($ITERM_SESSION_ID)
-  set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-else
-  set rtp+=~/Library/Python/3.8/lib/python/site-packages/powerline/bindings/vim
-endif
-
  
 " Ale Statusline -- To Come
+let g:airline_powerline_fonts = 1
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))

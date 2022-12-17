@@ -26,7 +26,7 @@ PATH="/usr/local/bin:$(getconf PATH)"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
-export EDITOR=/usr/local/bin/vim
+export EDITOR=$(which vim)
 export SRC_DIR=src
 
 plugins=(git git-flow-avh macos vi-mode brew bundler autojump docker history-substring-search kubectl)

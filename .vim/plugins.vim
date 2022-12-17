@@ -27,6 +27,8 @@ Plug 'Shougo/ddc-sorter_rank'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'Shougo/context_filetype.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
@@ -63,6 +65,9 @@ Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'zivyangll/git-blame.vim'
 Plug 'rhysd/git-messenger.vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
 
 
 call plug#end()
