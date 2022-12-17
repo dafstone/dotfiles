@@ -21,24 +21,7 @@ runtime ddc-config.vim
 
 " Theme Gallery - https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='luna'
- 
-" Ale Statusline -- To Come
 let g:airline_powerline_fonts = 1
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-set statusline=%{LinterStatus()}
 
 call ddc#custom#patch_global('ui', 'native')
  
@@ -113,8 +96,8 @@ set hidden														" handle multiple buffers better
  
 " StatusLine Config
 
-set statusline+=%#warningmsg#
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%*
 
 " Enable Mouse Support with SGR (xterm 1006 mouse support for more lines)
 
