@@ -1,10 +1,9 @@
-" Dan Stone (dan@evolvingmedia.net) vim configuration file
+" Dan Stone (dan.stone@fgsglobal.com) vimrc
 
-" Use Vim settings, rather than Vi settings (much better!).
-
-set nocompatible                        " original vi has nothing to do with my world
+set nocompatible                        
 filetype off                            " no legacy filetype handling
 set relativenumber                      " turn on relative numbers
+set number                              " but lets see the number I'm on
 set noswapfile                          " turning off swapfiles
 set t_Co=256
 
@@ -17,49 +16,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 runtime plugins.vim
+runtime ddc-config.vim
 
-let g:deoplete#enable_at_startup = 1
+" Theme Gallery - https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='luna'
+let g:airline_powerline_fonts = 1
 
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-
-let g:ale_linters_ignore = {
-\ 'ruby': ['rubocop'],
-\ 'javascript': ['eslint'],
-\}
-
-
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale'],
-" \})
-
-
-" If ITerm2 Session Found Set statusline accordingly
-if empty($ITERM_SESSION_ID)
-  set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-else
-  set rtp+=~/Library/Python/3.8/lib/python/site-packages/powerline/bindings/vim
-endif
- 
-" Ale Statusline -- To Come
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-
-set statusline=%{LinterStatus()}
+call ddc#custom#patch_global('ui', 'native')
  
 " Configuration for Ack with AG
 if executable('ag')
@@ -132,9 +95,6 @@ set hidden														" handle multiple buffers better
  
 " StatusLine Config
 
-set statusline+=%#warningmsg#
-set statusline+=%*
-
 " Enable Mouse Support with SGR (xterm 1006 mouse support for more lines)
 
 set mouse+=a
@@ -177,23 +137,8 @@ inoremap <C-U> <C-G>u<C-U>
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" OmniCompletion
-" set omnifunc=syntaxcomplete#Complete
-
-" Enable OmniCompletion
-
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType ruby setlocal  omnifunc=rubycomplete#Complete
-" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType go setlocal omnifunc=go#complete#Complete
-" 
-  " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
 
@@ -231,18 +176,14 @@ nnoremap <Leader>] :tabn<CR>                        " Next Tab
 nnoremap <Leader>[ :tabn<CR>                        " Next Tab
 nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
-nnoremap <Leader>j :%!python -m json.tool<CR>                 " Reload Vimrc 
+nnoremap <Leader>j :%!python -m json.tool<CR>       " Format JSON
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
-
-" Go Commands
-
-autocmd FileType go noremap<buffer> <Leader>d :GoDoc<CR> <C-w>L<CR> :vertical resize -20<CR>
-autocmd FileType go noremap<buffer> <Leader>r :GoRun<CR>
-autocmd FileType go noremap<buffer> <Leader>b :GoBuild<CR>
 
 " Colorscheme
 
 colorscheme solarized8
 set expandtab													" Set to use spaces not tabs
 
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
