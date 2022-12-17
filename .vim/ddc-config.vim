@@ -61,5 +61,24 @@ call ddc#custom#patch_filetype(
     \   },
     \ }})
 
+
+call ddc#custom#patch_global('sources', ['vim-lsp'])
+call ddc#custom#patch_global('sourceOptions', {
+    \ 'vim-lsp': {
+    \   'matchers': ['matcher_head'],
+    \   'mark': 'lsp',
+    \ },
+    \ })
+
+" if you want to use the unsupported CompleteProvider Server,
+" set true by'ignoreCompleteProvider'.
+call ddc#custom#patch_filetype(['css'], {
+   \ 'sourceParams': {
+   \   'vim-lsp': {
+   \     'ignoreCompleteProvider': v:true,
+   \   },
+   \ },
+   \ })
+
 " Use ddc.
 call ddc#enable()
