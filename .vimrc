@@ -19,6 +19,8 @@ endif
 runtime plugins.vim
 runtime ddc-config.vim
 
+" Theme Gallery - https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='luna'
  
 " Ale Statusline -- To Come
 let g:airline_powerline_fonts = 1
