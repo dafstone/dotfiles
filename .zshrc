@@ -108,6 +108,7 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 source ~/.dotfiles/zsh_additions/_docker.zsh
 shelltiming "source docker zsh"
 
@@ -124,6 +125,8 @@ if [ -f '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/d
 if [ -f '/Users/dan.stone/src/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.stone/src/google-cloud-sdk/completion.zsh.inc'; fi
 
 source <(kubectl completion zsh)
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 shelltiming "Init Krew"
