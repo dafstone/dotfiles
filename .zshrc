@@ -171,3 +171,7 @@ USE_GKE_GCLOUD_AUTH_PLUGIN=True
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+[[ -s "~/.iterm2_shell_integration.zsh" ]] && source ~/.iterm2_shell_integration.zsh
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

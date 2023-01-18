@@ -28,6 +28,7 @@ Plug 'LumaKernel/ddc-source-file'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'shun/ddc-source-vim-lsp'
+Plug 'shun/ddc-vim-lsp'
 Plug 'github/copilot.vim'
 
 Plug 'vim-ruby/vim-ruby'
