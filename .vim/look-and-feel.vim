@@ -1,0 +1,3 @@
+
+" Colorscheme Compatiblility
+let g:solarized_termcolors=256

@@ -15,14 +15,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+set mouse=a
+
 runtime plugins.vim
-runtime ddc-config.vim
+runtime look-and-feel.vim
+" runtime ddc-config.vim
 
 " Theme Gallery - https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
-call ddc#custom#patch_global('ui', 'native')
+" call ddc#custom#patch_global('ui', 'native')
  
 " Configuration for Ack with AG
 if executable('ag')
@@ -51,9 +54,6 @@ let g:NERDTrimTrailingWhitespace = 1
 set ignorecase		          " Case Insensitivity
 set smartcase		            " Unless explict match
 filetype plugin indent on
-
-" Colorscheme Compatiblility
-let g:solarized_termcolors=256
 
 " Set autoreading to on
 
