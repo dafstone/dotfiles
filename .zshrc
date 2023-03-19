@@ -39,9 +39,6 @@ source $ZSH/oh-my-zsh.sh
 shelltiming "Paths"
 
 
-# Go Path Stuff
-# export GOPATH=$HOME/$SRC_DIR/go
-# export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/$SRC_DIR/go/bin
 source ~/.profile_secrets
 
 # ZSH Options
@@ -88,6 +85,8 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 eval "$(pyenv init --path)" 
 
 shelltiming "Init Python"
+
+export GITHUB_OWNER=fgh-global
 
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -183,6 +182,10 @@ USE_GKE_GCLOUD_AUTH_PLUGIN=True
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "~/.iterm2_shell_integration.zsh" ]] && source ~/.iterm2_shell_integration.zsh
+
+# GOPATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
