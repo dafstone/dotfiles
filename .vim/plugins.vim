@@ -28,7 +28,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'vim-airline/vim-airline'
@@ -39,7 +39,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'roxma/vim-hug-neovim-rpc'         " nvim like rpc support
 " Plug 'roxma/nvim-yarp'                  " More nvim emulation
 " Plug 'tpope/vim-fugitive'               " git commands
-" Plug 'scrooloose/nerdtree'              " file management
+Plug 'scrooloose/nerdtree'              " file management
 " Plug 'scrooloose/nerdcommenter'         " Comment Management
 " Plug 'tpope/vim-rails'                  " rails powerup
 " Plug 'tpope/vim-ragtag'                 " tag completion goodness
@@ -47,7 +47,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'tpope/vim-endwise'                " Auto-End for VIM
 " Plug 'tpope/vim-repeat'                 " Auto-End for VIM
 " Plug 'plasticboy/vim-markdown'          " markdown syntax
-" Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
+Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
 " Plug 'moll/vim-node'                    " Node powertools
 " Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
 " Plug 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
@@ -71,6 +71,11 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 " Plug 'junegunn/fzf.vim'
 
+" Go Support
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'              " LSP Support
+Plug 'ray-x/go.nvim'                      
+Plug 'ray-x/guihua.lua'                   
 
 call plug#end()
 
