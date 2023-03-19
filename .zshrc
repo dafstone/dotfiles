@@ -65,15 +65,16 @@ alias install_global_gems="bundle install --system --gemfile ~/Gemfile_Global"
 
 shelltiming "Set Aliases and Navigation"
 
-# Add Hook to Trap Errant Vim Calls and Turn them into nvim calls
-function vim() {
-  read -q "REPLY?Are you sure you want to launch vim? [y/n] "
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    command vim "$@"
-  elif [[ $REPLY =~ ^[Nn]$ ]]; then
-    command nvim "$@"
-  fi
+# Add hook to trap calls to vim, display a message and then call nvim instead
+function vim() { 
+ echo "Likely Vim is not desired. Using nvim instead."
+ sleep 1
+ nvim "$@"
+}
+
+# provide an alias for vim
+function ovim {
+  command vim "$@"
 }
 
 # Init rbenv, pyenv, & nvm
@@ -85,8 +86,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 eval "$(pyenv init --path)" 
 
 shelltiming "Init Python"
-
-export GITHUB_OWNER=fgh-global
 
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
