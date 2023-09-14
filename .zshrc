@@ -26,7 +26,7 @@ PATH="/usr/local/bin:$(getconf PATH)"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
-export EDITOR=$(which vim)
+export EDITOR=/opt/homebrew/bin/nvim
 export SRC_DIR=src
 
 plugins=(git git-flow-avh macos vi-mode brew bundler autojump docker history-substring-search kubectl)
@@ -68,7 +68,6 @@ shelltiming "Set Aliases and Navigation"
 # Add hook to trap calls to vim, display a message and then call nvim instead
 function vim() { 
  echo "Likely Vim is not desired. Using nvim instead."
- sleep 1
  nvim "$@"
 }
 
@@ -82,8 +81,9 @@ function ovim {
 eval "$(rbenv init -)"
 shelltiming "Init Rbenv"
 
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-eval "$(pyenv init --path)" 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 shelltiming "Init Python"
 
@@ -121,7 +121,7 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 source ~/.dotfiles/zsh_additions/_docker.zsh
 shelltiming "source docker zsh"
 
-source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+source /opt/homebrew/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 shelltiming "source zsh navigation tools"
 
 

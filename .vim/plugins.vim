@@ -24,7 +24,8 @@ call plug#begin('~/.vim/plugged')
 " Plug 'pangloss/vim-javascript' "Javascript Bundle for VIM
 
 " Look & Feel (look-and-feel.vim)
-Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ray-x/aurora'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
@@ -72,10 +73,11 @@ Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is
 " Plug 'junegunn/fzf.vim'
 
 " Go Support
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'              " LSP Support
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ray-x/go.nvim'                      
-Plug 'ray-x/guihua.lua'                   
+Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'ray-x/navigator.lua'
 
 call plug#end()
 

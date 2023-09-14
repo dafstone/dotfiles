@@ -25,6 +25,14 @@ runtime look-and-feel.vim
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
+
+set termguicolors            " 24 bit color
+let g:aurora_italic = 1     " italic
+let g:aurora_transparent = 1     " transparent
+let g:aurora_bold = 1     " bold
+let g:aurora_darker = 1     " darker background
+
+colorscheme aurora
 " call ddc#custom#patch_global('ui', 'native')
  
 " Configuration for Ack with AG
@@ -183,7 +191,25 @@ vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
 
 " Colorscheme
 
-colorscheme solarized8
+" colorscheme solarized8
 set expandtab													" Set to use spaces not tabs
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" Go Support
+
+lua <<EOF
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+EOF
+
+lua require('go').setup()
+lua require('navigator').setup()
+
