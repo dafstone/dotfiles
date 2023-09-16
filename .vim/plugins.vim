@@ -5,6 +5,17 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
+Plug 'ray-x/aurora'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'github/copilot.vim'
+Plug 'scrooloose/nerdtree'              " file management
+Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
+Plug 'neovim/nvim-lspconfig'              " LSP Support
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ray-x/go.nvim'                      
+Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'ray-x/navigator.lua'
+
 " ddc-vim
 " Plug 'Shougo/ddc.vim'
 " Plug 'vim-denops/denops.vim'
@@ -25,11 +36,8 @@ call plug#begin('~/.vim/plugged')
 
 " Look & Feel (look-and-feel.vim)
 " Plug 'rafi/awesome-vim-colorschemes'
-Plug 'ray-x/aurora'
-Plug 'christoomey/vim-tmux-navigator'
 
 " Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
-Plug 'github/copilot.vim'
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'vim-airline/vim-airline'
@@ -40,7 +48,6 @@ Plug 'github/copilot.vim'
 " Plug 'roxma/vim-hug-neovim-rpc'         " nvim like rpc support
 " Plug 'roxma/nvim-yarp'                  " More nvim emulation
 " Plug 'tpope/vim-fugitive'               " git commands
-Plug 'scrooloose/nerdtree'              " file management
 " Plug 'scrooloose/nerdcommenter'         " Comment Management
 " Plug 'tpope/vim-rails'                  " rails powerup
 " Plug 'tpope/vim-ragtag'                 " tag completion goodness
@@ -48,7 +55,6 @@ Plug 'scrooloose/nerdtree'              " file management
 " Plug 'tpope/vim-endwise'                " Auto-End for VIM
 " Plug 'tpope/vim-repeat'                 " Auto-End for VIM
 " Plug 'plasticboy/vim-markdown'          " markdown syntax
-Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is depricated.
 " Plug 'moll/vim-node'                    " Node powertools
 " Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
 " Plug 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
@@ -68,16 +74,8 @@ Plug 'mileszs/ack.vim'                  " Finally moving to ack.vim as ag.vim is
 " Plug 'juliosueiras/vim-terraform-completion'
 " Plug 'zivyangll/git-blame.vim'
 " Plug 'rhysd/git-messenger.vim'
-" 
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 " Plug 'junegunn/fzf.vim'
-
-" Go Support
-Plug 'neovim/nvim-lspconfig'              " LSP Support
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'ray-x/go.nvim'                      
-Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
-Plug 'ray-x/navigator.lua'
 
 call plug#end()
 
