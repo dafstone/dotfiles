@@ -14,7 +14,7 @@ Plug 'neovim/nvim-lspconfig'              " LSP Support
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ray-x/go.nvim'                      
 Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
-Plug 'ray-x/navigator.lua'
+" Plug 'ray-x/navigator.lua'
 
 " ddc-vim
 " Plug 'Shougo/ddc.vim'
