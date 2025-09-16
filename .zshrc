@@ -1,9 +1,11 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# ZSH_DISABLE_COMPFIX=true
 
 show_timings=false
 start_time=$(gdate +%s%N)
@@ -33,7 +35,11 @@ plugins=(git git-flow-avh macos vi-mode brew bundler autojump docker history-sub
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  ZSH_THEME="robbyrussell"  # or any other simple theme you prefer in VS Code
+else
+  ZSH_THEME="powerlevel10k/powerlevel10k"
+fi
 source $ZSH/oh-my-zsh.sh
 
 shelltiming "Paths"
@@ -84,6 +90,8 @@ shelltiming "Init Rbenv"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 shelltiming "Init Python"
 
@@ -188,3 +196,23 @@ export PATH=$PATH:$GOPATH/bin
 
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/Users/dan.stone/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+. "$HOME/.local/bin/env"
+
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# Added by Windsurf
+export PATH="/Users/dan.stone/.codeium/windsurf/bin:$PATH"
+
+# PortAudio environment variables for Python package compilation (e.g., pyaudio)
+export CPPFLAGS="-I/opt/homebrew/include $CPPFLAGS"
+export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"

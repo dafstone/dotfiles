@@ -14,6 +14,12 @@ Plug 'neovim/nvim-lspconfig'              " LSP Support
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ray-x/go.nvim'                      
 Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
+" Plug 'madox2/vim-ai'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'olimorris/codecompanion.nvim'
+
 " Plug 'ray-x/navigator.lua'
 
 " ddc-vim
@@ -45,31 +51,28 @@ Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 " Plug 'dense-analysis/ale'
 " Plug 'Shougo/echodoc.vim'
 " Plug 'Shougo/neoinclude.vim'
-" Plug 'roxma/vim-hug-neovim-rpc'         " nvim like rpc support
-" Plug 'roxma/nvim-yarp'                  " More nvim emulation
 " Plug 'tpope/vim-fugitive'               " git commands
 " Plug 'scrooloose/nerdcommenter'         " Comment Management
 " Plug 'tpope/vim-rails'                  " rails powerup
 " Plug 'tpope/vim-ragtag'                 " tag completion goodness
-" Plug 'tpope/vim-surround'               " Surrounding
+Plug 'tpope/vim-surround'               " Surrounding
 " Plug 'tpope/vim-endwise'                " Auto-End for VIM
 " Plug 'tpope/vim-repeat'                 " Auto-End for VIM
-" Plug 'plasticboy/vim-markdown'          " markdown syntax
+Plug 'plasticboy/vim-markdown'          " markdown syntax
 " Plug 'moll/vim-node'                    " Node powertools
-" Plug 'kien/ctrlp.vim'                   " Ctrl-P Fzzy Finder
 " Plug 'Lokaltog/vim-easymotion'          " Quick Movement for Movers
 " Plug 'groenewege/vim-less'              " Vim LESS Support
 " Plug 'fatih/vim-go'                     " Vim Go Support
 " Plug 'nginx/nginx', {'rtp': 'contrib/vim/'}
-" Plug 'mhinz/vim-startify'               " Start Screen
-" Plug 'airblade/vim-gitgutter'           " Gitgutter
+Plug 'mhinz/vim-startify'               " Start Screen
+Plug 'airblade/vim-gitgutter'           " Gitgutter
 " Plug 'chrisbra/csv.vim'
 " Plug 'kballard/vim-swift'
 " Plug 'elixir-lang/vim-elixir'           " Elixir Language Support
 " Plug 'jiangmiao/auto-pairs'             " Auto Pairing
 " Plug 'nathanaelkane/vim-indent-guides'  " Indent Guides
 " Plug 'dsawardekar/wordpress.vim'        " Wordpress Utilities (Including Direct Hook to WP-CLI)
-" Plug 'iberianpig/tig-explorer.vim'      " Tig in vim
+Plug 'iberianpig/tig-explorer.vim'      " Tig in vim
 " Plug 'hashivim/vim-terraform'
 " Plug 'juliosueiras/vim-terraform-completion'
 " Plug 'zivyangll/git-blame.vim'
@@ -78,4 +81,6 @@ Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 " Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+
 

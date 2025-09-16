@@ -21,9 +21,13 @@ runtime plugins.vim
 runtime look-and-feel.vim
 " runtime ddc-config.vim
 
+
+
 " Theme Gallery - https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
+
+let g:python3_host_prog = '/Users/dan.stone/.pyenv/versions/3.11.0/bin/python3'
 
 
 set termguicolors            " 24 bit color
@@ -208,8 +212,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
+require('go').setup()
+require("codecompanion").setup()
 EOF
 
-lua require('go').setup()
 " lua require('navigator').setup()
 
