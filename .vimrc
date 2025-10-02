@@ -205,7 +205,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 require('go').setup()
-require("codecompanion").setup()
 EOF
 
 " lua require('navigator').setup()
