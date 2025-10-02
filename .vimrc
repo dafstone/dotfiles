@@ -116,20 +116,12 @@ set mouse+=a
 "   set ttymouse=xterm2
 " endif
 
-" CtrlP Configuration
+" Telescope Configuration (replaces CtrlP)
 
-hi def link CtrlPMatch CursorLine
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_map = '<c-p>'
-nnoremap <C-b> :CtrlPBuffer<cr>
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|web/wp\|web/app/plugins\|web/app/mu-plugins\|web/app/uploads',
-  \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
-  \ }
-set wildignore+=*/tmp/*,*/node_modules/*
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-b> <cmd>Telescope buffers<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
  
 " NERDTree Configuration 
 
