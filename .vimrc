@@ -15,45 +15,57 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+set mouse=a
+
 runtime plugins.vim
-runtime ddc-config.vim
+runtime look-and-feel.vim
+" runtime ddc-config.vim
+
+
 
 " Theme Gallery - https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
-call ddc#custom#patch_global('ui', 'native')
+let g:python3_host_prog = '/Users/dan.stone/.pyenv/versions/3.11.0/bin/python3'
+
+
+set termguicolors            " 24 bit color
+let g:aurora_italic = 1     " italic
+let g:aurora_transparent = 1     " transparent
+let g:aurora_bold = 1     " bold
+let g:aurora_darker = 1     " darker background
+
+colorscheme aurora
+" call ddc#custom#patch_global('ui', 'native')
  
 " Configuration for Ack with AG
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" Indent Guide Configuration
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
+" Indent Guide Configuration (plugin not installed - commented out)
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_start_level = 1
+" let g:indent_guides_guide_size = 1
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=Grey27 ctermbg=238
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=Grey27 ctermbg=238
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 
 " HTML Tidy (requires tidy on the system)
 
 :command! Thtml :%!tidy -q -i --show-errors 0
  
-" Comment Configuration
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDTrimTrailingWhitespace = 1
+" Comment Configuration (nerdcommenter plugin not installed - commented out)
+" let g:NERDSpaceDelims = 1
+" let g:NERDCompactSexyComs = 1
+" let g:NERDTrimTrailingWhitespace = 1
 
 " Search Configuration
 
 set ignorecase		          " Case Insensitivity
 set smartcase		            " Unless explict match
 filetype plugin indent on
-
-" Colorscheme Compatiblility
-let g:solarized_termcolors=256
 
 " Set autoreading to on
 
@@ -98,26 +110,18 @@ set hidden														" handle multiple buffers better
 " Enable Mouse Support with SGR (xterm 1006 mouse support for more lines)
 
 set mouse+=a
-if has("mouse_sgr")
-  set ttymouse=sgr
-else
-  set ttymouse=xterm2
-endif
+" if has("mouse_sgr")
+"   set ttymouse=sgr
+" else
+"   set ttymouse=xterm2
+" endif
 
-" CtrlP Configuration
+" Telescope Configuration (replaces CtrlP)
 
-hi def link CtrlPMatch CursorLine
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_map = '<c-p>'
-nnoremap <C-b> :CtrlPBuffer<cr>
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|web/wp\|web/app/plugins\|web/app/mu-plugins\|web/app/uploads',
-  \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
-  \ }
-set wildignore+=*/tmp/*,*/node_modules/*
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-b> <cmd>Telescope buffers<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
  
 " NERDTree Configuration 
 
@@ -177,13 +181,32 @@ nnoremap <Leader>[ :tabn<CR>                        " Next Tab
 nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 nnoremap <Leader>j :%!python -m json.tool<CR>       " Format JSON
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+" nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>  " git-blame plugin not installed
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
 
 " Colorscheme
 
-colorscheme solarized8
+" colorscheme solarized8
 set expandtab													" Set to use spaces not tabs
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" Go Support
+
+lua <<EOF
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+require('go').setup()
+require("codecompanion").setup()
+EOF
+
+" lua require('navigator').setup()
+

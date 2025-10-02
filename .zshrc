@@ -1,9 +1,11 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+if [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# ZSH_DISABLE_COMPFIX=true
 
 show_timings=false
 start_time=$(gdate +%s%N)
@@ -26,22 +28,23 @@ PATH="/usr/local/bin:$(getconf PATH)"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
-export EDITOR=$(which vim)
+export EDITOR=/opt/homebrew/bin/nvim
 export SRC_DIR=src
 
 plugins=(git git-flow-avh macos vi-mode brew bundler autojump docker history-substring-search kubectl)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  ZSH_THEME="robbyrussell"  # or any other simple theme you prefer in VS Code
+else
+  ZSH_THEME="powerlevel10k/powerlevel10k"
+fi
 source $ZSH/oh-my-zsh.sh
 
 shelltiming "Paths"
 
 
-# Go Path Stuff
-# export GOPATH=$HOME/$SRC_DIR/go
-# export PATH=$PATH:/usr/local/opt/go/libexec/bin:~/$SRC_DIR/go/bin
 source ~/.profile_secrets
 
 # ZSH Options
@@ -68,13 +71,27 @@ alias install_global_gems="bundle install --system --gemfile ~/Gemfile_Global"
 
 shelltiming "Set Aliases and Navigation"
 
+# Add hook to trap calls to vim, display a message and then call nvim instead
+function vim() { 
+ echo "Likely Vim is not desired. Using nvim instead."
+ nvim "$@"
+}
+
+# provide an alias for vim
+function ovim {
+  command vim "$@"
+}
+
 # Init rbenv, pyenv, & nvm
 
 eval "$(rbenv init -)"
 shelltiming "Init Rbenv"
 
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-eval "$(pyenv init --path)" 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 shelltiming "Init Python"
 
@@ -112,7 +129,7 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 source ~/.dotfiles/zsh_additions/_docker.zsh
 shelltiming "source docker zsh"
 
-source ~/.dotfiles/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+source /opt/homebrew/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 shelltiming "source zsh navigation tools"
 
 
@@ -171,3 +188,31 @@ USE_GKE_GCLOUD_AUTH_PLUGIN=True
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+[[ -s "~/.iterm2_shell_integration.zsh" ]] && source ~/.iterm2_shell_integration.zsh
+
+# GOPATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/Users/dan.stone/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+. "$HOME/.local/bin/env"
+
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# Added by Windsurf
+export PATH="/Users/dan.stone/.codeium/windsurf/bin:$PATH"
+
+# PortAudio environment variables for Python package compilation (e.g., pyaudio)
+export CPPFLAGS="-I/opt/homebrew/include $CPPFLAGS"
+export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"

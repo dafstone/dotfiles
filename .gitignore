@@ -2,3 +2,5 @@ scripts/*
 .vim/autoload
 .vim/plugged
 .vim/ftplugin
+.vim/.netrwhist
+.claude/
