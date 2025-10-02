@@ -44,22 +44,22 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" Indent Guide Configuration
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
+" Indent Guide Configuration (plugin not installed - commented out)
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_start_level = 1
+" let g:indent_guides_guide_size = 1
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=Grey27 ctermbg=238
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=Grey27 ctermbg=238
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=Grey11 ctermbg=236
 
 " HTML Tidy (requires tidy on the system)
 
 :command! Thtml :%!tidy -q -i --show-errors 0
  
-" Comment Configuration
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDTrimTrailingWhitespace = 1
+" Comment Configuration (nerdcommenter plugin not installed - commented out)
+" let g:NERDSpaceDelims = 1
+" let g:NERDCompactSexyComs = 1
+" let g:NERDTrimTrailingWhitespace = 1
 
 " Search Configuration
 
@@ -189,7 +189,7 @@ nnoremap <Leader>[ :tabn<CR>                        " Next Tab
 nnoremap <Leader>t :ToggleTagbar<CR>                " Next Tab
 nnoremap <Leader>v :so $MYVIMRC<CR>                 " Reload Vimrc 
 nnoremap <Leader>j :%!python -m json.tool<CR>       " Format JSON
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+" nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>  " git-blame plugin not installed
 vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>  
 vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
 

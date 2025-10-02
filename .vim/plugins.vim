@@ -42,6 +42,8 @@ Plug 'olimorris/codecompanion.nvim'
 
 " Look & Feel (look-and-feel.vim)
 " Plug 'rafi/awesome-vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
 " Plug 'vim-ruby/vim-ruby'
