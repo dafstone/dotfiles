@@ -3,3 +3,4 @@ scripts/*
 .vim/plugged
 .vim/ftplugin
 .vim/.netrwhist
+.claude/
