@@ -57,6 +57,11 @@ cd ~/.dotfiles
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
+
+# For neovim configuration
+mkdir -p ~/.config
+ln -sf ~/.dotfiles/config_dir/nvim ~/.config/nvim
+
 # ... add other configurations as needed
 ```
 

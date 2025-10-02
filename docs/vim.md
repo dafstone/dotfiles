@@ -98,6 +98,10 @@ Plug 'olimorris/codecompanion.nvim'         " AI assistance
 ├── look-and-feel.vim     # Visual configuration
 ├── ddc-config.vim        # Completion configuration (optional)
 └── autoload/             # Auto-loaded functions
+
+config_dir/nvim/
+├── init.vim              # Neovim initialization (sources .vimrc)
+└── postload.lua          # Lua configuration (LSP setup)
 ```
 
 ### Key Settings
@@ -178,18 +182,24 @@ let g:indent_guides_guide_size = 1
    ln -sf ~/.dotfiles/.vim ~/.vim
    ```
 
-2. Install vim-plug (if not already installed):
+2. Link the neovim configuration:
+   ```bash
+   mkdir -p ~/.config
+   ln -sf ~/.dotfiles/config_dir/nvim ~/.config/nvim
+   ```
+
+3. Install vim-plug (if not already installed):
    ```bash
    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
    ```
 
-3. Install plugins:
+4. Install plugins:
    ```vim
    :PlugInstall
    ```
 
-4. Install language servers (optional, for LSP support):
+5. Install language servers (optional, for LSP support):
    ```bash
    # Go language server
    go install golang.org/x/tools/gopls@latest
