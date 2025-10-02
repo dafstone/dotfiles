@@ -84,16 +84,25 @@ function ovim {
 
 # Init rbenv, pyenv, & nvm
 
-eval "$(rbenv init -)"
-shelltiming "Init Rbenv"
+# Lazy load rbenv - only initialize when rbenv command is used
+rbenv() {
+  unfunction rbenv
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
+# Lazy load pyenv - only initialize when pyenv command is used
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
+pyenv() {
+  unfunction pyenv
+  eval "$(command pyenv init -)"
+  eval "$(command pyenv virtualenv-init -)"
+  pyenv "$@"
+}
 
-shelltiming "Init Python"
+shelltiming "Setup lazy loading for rbenv and pyenv"
 
 # Init Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
