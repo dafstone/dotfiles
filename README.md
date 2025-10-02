@@ -78,7 +78,9 @@ source ~/.bash_profile
 
 - [Tmux Controls & Features](docs/tmux.md) - Complete guide to tmux key bindings and features
 - [Vim Configuration](docs/vim.md) - Vim setup and customizations
+- [Modern Neovim Features](docs/nvim-features.md) - Guide to completion, file finding, and syntax highlighting
 - [Shell Aliases](docs/shell.md) - Available aliases and shortcuts
+- [Archived Plugins](docs/plugins-archive.md) - Previously used plugins for future reference
 
 ## Customization
 

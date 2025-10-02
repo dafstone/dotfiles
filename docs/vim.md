@@ -50,18 +50,39 @@ This configuration provides a modern development environment with LSP support, A
 | `Ctrl+K` | Move to window/pane above |
 | `Ctrl+L` | Move to right window/pane |
 
-### File Operations
+### Modern File Operations
 | Key Combination | Action |
 |----------------|--------|
-| `Ctrl+P` | Open CtrlP fuzzy finder |
+| `Ctrl+P` | **Telescope find files** - Fast fuzzy file finder |
+| `Ctrl+B` | **Telescope buffers** - Browse open files |
+| `<leader>fg` | **Telescope live grep** - Search text across files |
+| `<leader>fh` | **Telescope help** - Search vim help tags |
 | `:NERDTree` | Open file explorer |
-| `:Ack {pattern}` | Search for text across files |
+
+### Autocompletion (nvim-cmp)
+| Key Combination | Action |
+|----------------|--------|
+| `Tab` | Accept completion or navigate to next |
+| `Shift+Tab` | Navigate to previous completion |
+| `Enter` | Confirm selection |
+| `Ctrl+Space` | Manually trigger completion |
+| `Ctrl+E` | Dismiss completion menu |
+
+### Code Intelligence (Treesitter)
+| Key Combination | Action |
+|----------------|--------|
+| `gnn` | Start incremental selection |
+| `grn` | Expand selection to next node |
+| `grc` | Expand selection to containing scope |
+| `grm` | Shrink selection |
 
 ### AI Assistance
 | Command | Action |
 |---------|--------|
 | `:Copilot enable` | Enable GitHub Copilot |
 | `:CodeCompanion` | Open AI chat interface |
+
+👉 **[See detailed modern features guide](nvim-features.md)** for comprehensive usage instructions.
 
 ## Plugin Configuration
 
@@ -72,15 +93,25 @@ Plug 'christoomey/vim-tmux-navigator'        " Tmux integration
 Plug 'github/copilot.vim'                   " GitHub Copilot
 Plug 'scrooloose/nerdtree'                  " File explorer
 Plug 'mileszs/ack.vim'                      " Text search
-Plug 'kien/ctrlp.vim'                       " Fuzzy finder
+Plug 'nvim-telescope/telescope.nvim'         " Modern fuzzy finder
 ```
 
 ### Language Support
 ```vim
-Plug 'neovim/nvim-lspconfig'                " LSP support
-Plug 'nvim-treesitter/nvim-treesitter'      " Syntax highlighting
+Plug 'neovim/nvim-lspconfig'                " LSP support (legacy - now uses vim.lsp.config)
+Plug 'nvim-treesitter/nvim-treesitter'      " Advanced syntax highlighting
 Plug 'ray-x/go.nvim'                        " Go development
 Plug 'ray-x/guihua.lua'                     " GUI components
+```
+
+### Modern Completion System
+```vim
+Plug 'hrsh7th/nvim-cmp'                     " Main completion engine
+Plug 'hrsh7th/cmp-nvim-lsp'                 " LSP completions
+Plug 'hrsh7th/cmp-buffer'                   " Buffer completions
+Plug 'hrsh7th/cmp-path'                     " Path completions
+Plug 'L3MON4D3/LuaSnip'                     " Snippet engine
+Plug 'saadparwaiz1/cmp_luasnip'             " Snippet completions
 ```
 
 ### AI Integration
