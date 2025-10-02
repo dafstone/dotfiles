@@ -17,8 +17,8 @@ These bindings work from normal mode and automatically enter copy mode:
 |----------------|--------|
 | `Page Up` | Enter copy mode and scroll up one page |
 | `Page Down` | Enter copy mode and scroll down one page |
-| `Ctrl+U` | Enter copy mode and scroll up half page (vi-style) |
-| `Ctrl+D` | Enter copy mode and scroll down half page (vi-style) |
+| `Ctrl+A` + `Ctrl+U` | Enter copy mode and scroll up half page |
+| `Ctrl+A` + `Ctrl+D` | Enter copy mode and scroll down half page |
 | `Shift+Page Up` | Alternative page up scrolling |
 | `Shift+Page Down` | Alternative page down scrolling |
 
@@ -28,7 +28,7 @@ These work in copy mode and preserve your text selection:
 | Key Combination | Action |
 |----------------|--------|
 | `Page Up/Down` | Full page scrolling in copy mode |
-| `Ctrl+U/D` | Half-page scrolling in copy mode |
+| `Ctrl+U/D` | Half-page scrolling (only works in copy mode) |
 | `Ctrl+B/F` | Alternative page scrolling (vi-style) |
 | `Ctrl+Y` | Scroll up one line |
 | `Ctrl+E` | Scroll down one line |
@@ -169,6 +169,8 @@ tmux source-file ~/.tmux.conf
 3. **Multiple Selection**: Use `v` to start selection, move cursor, then `y` to copy
 4. **Zoom Pane**: `Ctrl+A + z` to zoom current pane to full window (toggle)
 5. **Detach Session**: `Ctrl+A + d` to detach and keep session running
+6. **Ctrl+U/D Work Normally**: These keys now work normally in shell and vim, only scroll in tmux copy mode
+7. **Manual Scrolling**: Use `Ctrl+A` + `Ctrl+U/D` when you need to scroll from normal mode
 
 ## Troubleshooting
 

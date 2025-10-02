@@ -31,7 +31,7 @@ This configuration provides a modern development environment with LSP support, A
 
 ### 📁 File Management
 - **NERDTree** - File explorer with tree view
-- **CtrlP** - Fuzzy finder for files, buffers, and MRU
+- **Telescope** - Modern fuzzy finder with live preview
 - **Ack.vim** - Fast text searching with AG (The Silver Searcher)
 
 ### 🔧 Language Support
@@ -127,7 +127,7 @@ Plug 'olimorris/codecompanion.nvim'         " AI assistance
 .vim/
 ├── plugins.vim           # Plugin definitions
 ├── look-and-feel.vim     # Visual configuration
-├── ddc-config.vim        # Completion configuration (optional)
+├── ddc-config.vim        # Legacy completion config (unused)
 └── autoload/             # Auto-loaded functions
 
 config_dir/nvim/
@@ -169,10 +169,11 @@ endif
 - Uses **The Silver Searcher (ag)** for fast text search
 - Integrates with ack.vim for in-editor results
 
-### CtrlP Fuzzy Finding
-- **Quick file access** - Find files by typing partial names
-- **Buffer navigation** - Quick switching between open files
-- **MRU (Most Recently Used)** - Access recently opened files
+### Telescope Features
+- **Fast file finding** - Fuzzy search with live preview (`Ctrl+P`)
+- **Buffer navigation** - Quick switching between open files (`Ctrl+B`)
+- **Live grep** - Search text across all files (`<leader>fg`)
+- **Help search** - Find vim help topics (`<leader>fh`)
 
 ## Customization
 
