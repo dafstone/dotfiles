@@ -31,7 +31,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/opt/homebrew/bin/nvim
 export SRC_DIR=src
 
-plugins=(git git-flow-avh macos vi-mode brew bundler autojump docker history-substring-search kubectl)
+plugins=(git git-flow-avh macos vi-mode brew bundler docker history-substring-search kubectl)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
 HIST_STAMPS="mm.dd.yyyy"                # history timestamp formatting
@@ -104,10 +104,10 @@ pyenv() {
 
 shelltiming "Setup lazy loading for rbenv and pyenv"
 
-# Init Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# Init Zoxide
+eval "$(zoxide init zsh)"
 
-shelltiming "Init Autojump"
+shelltiming "Init Zoxide"
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/stone/.zshrc'
 
@@ -130,7 +130,8 @@ source ~/.dotfiles/.local_aliases
 
 shelltiming "Sourced zsh and docker aliases"
 
-unalias run-help
+# Unalias run-help if it exists (for better help functionality)
+(( ${+aliases[run-help]} )) && unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
