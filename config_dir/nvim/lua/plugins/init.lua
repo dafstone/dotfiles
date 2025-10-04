@@ -19,15 +19,15 @@ return {
   },
 
   -- UI and appearance
-  {
-    "vim-airline/vim-airline",
-    dependencies = { "vim-airline/vim-airline-themes" },
-    event = "VeryLazy",
-  },
-  {
-    "vim-airline/vim-airline-themes",
-    lazy = true,
-  },
+  -- {
+  --   "vim-airline/vim-airline",
+  --   dependencies = { "vim-airline/vim-airline-themes" },
+  --   event = "VeryLazy",
+  -- },
+  -- {
+  --   "vim-airline/vim-airline-themes",
+  --   lazy = true,
+  -- },
 
   -- File management
   -- {
@@ -110,4 +110,5 @@ return {
   { import = "plugins.treesitter" },
   { import = "plugins.codecompanion" },
   { import = "plugins.nvim-tree" },
+  { import = "plugins.lualine" },
 }

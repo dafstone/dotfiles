@@ -3,7 +3,7 @@ local opt = vim.opt
 
 -- General
 opt.mouse = "a"                     -- Enable mouse support
-opt.encoding = "utf-8"              -- Force UTF-8 encoding
+-- opt.encoding = "utf-8"           -- Not settable in Neovim (always UTF-8)
 opt.fileencoding = "utf-8"          -- Force UTF-8 file encoding
 
 -- Appearance
@@ -47,9 +47,9 @@ vim.g.aurora_transparent = 1
 vim.g.aurora_bold = 1
 vim.g.aurora_darker = 1
 
--- Airline theme (if using vim-airline)
-vim.g.airline_theme = "luna"
-vim.g.airline_powerline_fonts = 1
+-- Airline theme (now using lualine)
+-- vim.g.airline_theme = "luna"
+-- vim.g.airline_powerline_fonts = 1
 
 -- NERDTree settings (now using nvim-tree)
 -- vim.g.NERDTreeShowHidden = 1
