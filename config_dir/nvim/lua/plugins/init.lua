@@ -30,13 +30,13 @@ return {
   },
 
   -- File management
-  {
-    "scrooloose/nerdtree",
-    cmd = { "NERDTree", "NERDTreeToggle", "NERDTreeFind" },
-    keys = {
-      { "<Leader>n", ":NERDTree<CR>", desc = "Open NERDTree" },
-    },
-  },
+  -- {
+  --   "scrooloose/nerdtree",
+  --   cmd = { "NERDTree", "NERDTreeToggle", "NERDTreeFind" },
+  --   keys = {
+  --     { "<Leader>n", ":NERDTree<CR>", desc = "Open NERDTree" },
+  --   },
+  -- },
 
   -- Search and navigation
   {
@@ -109,4 +109,5 @@ return {
   { import = "plugins.telescope" },
   { import = "plugins.treesitter" },
   { import = "plugins.codecompanion" },
+  { import = "plugins.nvim-tree" },
 }

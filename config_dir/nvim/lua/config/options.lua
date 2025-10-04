@@ -51,8 +51,8 @@ vim.g.aurora_darker = 1
 vim.g.airline_theme = "luna"
 vim.g.airline_powerline_fonts = 1
 
--- NERDTree settings
-vim.g.NERDTreeShowHidden = 1
+-- NERDTree settings (now using nvim-tree)
+-- vim.g.NERDTreeShowHidden = 1
 
 -- Ack.vim configuration
 if vim.fn.executable("ag") == 1 then

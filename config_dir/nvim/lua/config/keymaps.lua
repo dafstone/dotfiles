@@ -6,7 +6,8 @@ keymap("n", "Q", "gq", { desc = "Formatting" })
 keymap("i", "<C-U>", "<C-G>u<C-U>", { desc = "Delete line in insert mode" })
 
 -- Leader key mappings
-keymap("n", "<Leader>n", ":NERDTree<CR>", { desc = "Open NERDTree" })
+keymap("n", "<Leader>n", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
+keymap("n", "<Leader>nf", "<cmd>NvimTreeFindFile<CR>", { desc = "Find current file in tree" })
 keymap("n", "<Leader>/", ":noh<CR>", { desc = "Clear search highlights" })
 keymap("n", "<Leader>q", ":tabp<CR>", { desc = "Previous tab" })
 keymap("n", "<Leader>]", ":tabn<CR>", { desc = "Next tab" })
