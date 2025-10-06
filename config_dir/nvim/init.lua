@@ -1,6 +1,7 @@
 -- dafstone nvim config
 -- Migrated to lazy.nvim for better performance and modern Lua configuration
 
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

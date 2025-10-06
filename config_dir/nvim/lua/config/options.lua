@@ -6,10 +6,14 @@ opt.mouse = "a"                     -- Enable mouse support
 -- opt.encoding = "utf-8"           -- Not settable in Neovim (always UTF-8)
 opt.fileencoding = "utf-8"          -- Force UTF-8 file encoding
 
+-- Terminal settings (crucial for powerline fonts)
+vim.opt.termguicolors = true        -- Enable 24-bit RGB colors
+vim.g.airline_powerline_fonts = 1   -- Enable powerline fonts in airline
+vim.g.airline_theme = "luna"        -- Set airline theme
+
 -- Appearance
 opt.number = true                   -- Show line numbers
 opt.relativenumber = true           -- Show relative line numbers
-opt.termguicolors = true            -- Enable 24-bit RGB colors
 opt.title = true                    -- Set the terminal title
 opt.laststatus = 2                  -- Always show statusline
 opt.showcmd = true                  -- Show incomplete commands
@@ -47,9 +51,7 @@ vim.g.aurora_transparent = 1
 vim.g.aurora_bold = 1
 vim.g.aurora_darker = 1
 
--- Airline theme (now using lualine)
--- vim.g.airline_theme = "luna"
--- vim.g.airline_powerline_fonts = 1
+-- Airline theme (moved to terminal settings section above)
 
 -- NERDTree settings (now using nvim-tree)
 -- vim.g.NERDTreeShowHidden = 1
