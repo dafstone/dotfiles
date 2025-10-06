@@ -32,23 +32,25 @@ return {
       require("lualine").setup({
         options = {
           theme = custom_theme,
-          component_separators = '',
-          section_separators = { left = '\u{E0B0}', right = '\u{E0B2}' },
+          component_separators = { left = '  ', right = '  ' },
+          section_separators = { left = '\u{E0CC}', right = '\u{E0CD}' },
           globalstatus = true,
         },
         sections = {
-          lualine_a = { 'mode' },
+          lualine_a = { { 'mode', separator = { right = '\u{E0C4}' } } },
           lualine_b = {
-            'branch',
+            { 'branch', padding = { left = 2, right = 1 } },
             {
               'diff',
               colored = true,
               symbols = { added = '+', modified = '~', removed = '-' },
+              padding = { left = 1, right = 1 },
             },
             {
               'diagnostics',
               sources = { 'nvim_lsp' },
               symbols = { error = ' ', warn = ' ', info = ' ' },
+              padding = { left = 1, right = 2 },
             },
           },
           lualine_c = {
@@ -56,15 +58,16 @@ return {
               'filename',
               file_status = true,
               path = 1,
+              padding = { left = 2, right = 2 },
             }
           },
           lualine_x = {
-            'encoding',
-            'fileformat',
-            'filetype',
+            { 'encoding', padding = { left = 1, right = 1 } },
+            { 'fileformat', padding = { left = 1, right = 1 } },
+            { 'filetype', padding = { left = 1, right = 2 } },
           },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' }
+          lualine_y = { { 'progress', padding = { left = 2, right = 1 } } },
+          lualine_z = { { 'location', padding = { left = 1, right = 1 } } }
         },
         inactive_sections = {
           lualine_a = {},
