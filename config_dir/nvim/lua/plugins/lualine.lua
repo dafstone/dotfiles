@@ -1,15 +1,39 @@
--- Modern statusline with clean separators that actually work
+-- Modern statusline with tmux-style full-height separators
 return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     config = function()
+      -- Custom theme for better visual separation like tmux
+      local custom_theme = {
+        normal = {
+          a = { bg = '#61afef', fg = '#1e222a', gui = 'bold' },
+          b = { bg = '#3e4451', fg = '#abb2bf' },
+          c = { bg = '#2c323c', fg = '#abb2bf' },
+          x = { bg = '#2c323c', fg = '#abb2bf' },
+          y = { bg = '#3e4451', fg = '#abb2bf' },
+          z = { bg = '#61afef', fg = '#1e222a', gui = 'bold' },
+        },
+        insert = {
+          a = { bg = '#98c379', fg = '#1e222a', gui = 'bold' },
+          z = { bg = '#98c379', fg = '#1e222a', gui = 'bold' },
+        },
+        visual = {
+          a = { bg = '#c678dd', fg = '#1e222a', gui = 'bold' },
+          z = { bg = '#c678dd', fg = '#1e222a', gui = 'bold' },
+        },
+        replace = {
+          a = { bg = '#e06c75', fg = '#1e222a', gui = 'bold' },
+          z = { bg = '#e06c75', fg = '#1e222a', gui = 'bold' },
+        },
+      }
+
       require("lualine").setup({
         options = {
-          theme = 'auto',
-          component_separators = { left = '│', right = '│' },
-          section_separators = { left = '', right = '' },
+          theme = custom_theme,
+          component_separators = '',
+          section_separators = { left = '\u{E0B0}', right = '\u{E0B2}' },
           globalstatus = true,
         },
         sections = {
