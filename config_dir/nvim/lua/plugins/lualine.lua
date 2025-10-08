@@ -8,31 +8,31 @@ return {
       -- Custom theme for better visual separation like tmux
       local custom_theme = {
         normal = {
-          a = { bg = '#61afef', fg = '#1e222a', gui = 'bold' },
+          a = { bg = '#4a9eff', fg = '#1e222a', gui = 'bold' }, -- Bright blue
           b = { bg = '#3e4451', fg = '#abb2bf' },
           c = { bg = '#2c323c', fg = '#abb2bf' },
           x = { bg = '#2c323c', fg = '#abb2bf' },
           y = { bg = '#3e4451', fg = '#abb2bf' },
-          z = { bg = '#61afef', fg = '#1e222a', gui = 'bold' },
+          z = { bg = '#4a9eff', fg = '#1e222a', gui = 'bold' },
         },
         insert = {
-          a = { bg = '#98c379', fg = '#1e222a', gui = 'bold' },
+          a = { bg = '#98c379', fg = '#1e222a', gui = 'bold' }, -- Green (unchanged)
           z = { bg = '#98c379', fg = '#1e222a', gui = 'bold' },
         },
         visual = {
-          a = { bg = '#c678dd', fg = '#1e222a', gui = 'bold' },
-          z = { bg = '#c678dd', fg = '#1e222a', gui = 'bold' },
+          a = { bg = '#ffab00', fg = '#1e222a', gui = 'bold' }, -- Orange (high contrast with blue)
+          z = { bg = '#ffab00', fg = '#1e222a', gui = 'bold' },
         },
         replace = {
-          a = { bg = '#e06c75', fg = '#1e222a', gui = 'bold' },
-          z = { bg = '#e06c75', fg = '#1e222a', gui = 'bold' },
+          a = { bg = '#ff3333', fg = '#ffffff', gui = 'bold' }, -- Strong bright red
+          z = { bg = '#ff3333', fg = '#ffffff', gui = 'bold' },
         },
       }
 
       require("lualine").setup({
         options = {
           theme = custom_theme,
-          component_separators = { left = '│', right = '│' },
+          component_separators = { left = '│', right = ' \u{E0BB} ' },
           section_separators = '',
           globalstatus = true,
         },
