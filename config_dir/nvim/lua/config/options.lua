@@ -4,7 +4,7 @@ local opt = vim.opt
 -- General
 opt.mouse = "a"                     -- Enable mouse support
 -- opt.encoding = "utf-8"           -- Not settable in Neovim (always UTF-8)
-opt.fileencoding = "utf-8"          -- Force UTF-8 file encoding
+-- opt.fileencoding = "utf-8"       -- Not needed - Neovim defaults to UTF-8
 
 -- Terminal settings (crucial for powerline fonts)
 vim.opt.termguicolors = true        -- Enable 24-bit RGB colors

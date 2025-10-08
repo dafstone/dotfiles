@@ -111,4 +111,5 @@ return {
   { import = "plugins.codecompanion" },
   { import = "plugins.nvim-tree" },
   { import = "plugins.lualine" },
+  { import = "plugins.barbar" },
 }
