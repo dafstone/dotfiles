@@ -82,7 +82,7 @@ function ovim {
   command vim "$@"
 }
 
-# Init rbenv, pyenv, & nvm
+# Init rbenv & nvm (uv now handles Python)
 
 # Lazy load rbenv - only initialize when rbenv command is used
 rbenv() {
@@ -91,18 +91,7 @@ rbenv() {
   rbenv "$@"
 }
 
-# Lazy load pyenv - only initialize when pyenv command is used
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-
-pyenv() {
-  unfunction pyenv
-  eval "$(command pyenv init -)"
-  eval "$(command pyenv virtualenv-init -)"
-  pyenv "$@"
-}
-
-shelltiming "Setup lazy loading for rbenv and pyenv"
+shelltiming "Setup lazy loading for rbenv"
 
 # Init Zoxide
 eval "$(zoxide init zsh)"
@@ -158,7 +147,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 shelltiming "Init Krew"
 
-export CLOUDSDK_PYTHON="$(which python)"
+export CLOUDSDK_PYTHON="$HOME/.local/bin/python3"
 
 source ~/.dotfiles/bundler-exec.sh
 source ~/.envkeys
