@@ -134,6 +134,9 @@ shelltiming "source zsh navigation tools"
 
 shelltiming "Init Google Cloud zsh"
 
+# Set Python for Google Cloud SDK BEFORE sourcing gcloud
+export CLOUDSDK_PYTHON="$HOME/.local/bin/python3"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -146,8 +149,6 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 shelltiming "Init Krew"
-
-export CLOUDSDK_PYTHON="$HOME/.local/bin/python3"
 
 source ~/.dotfiles/bundler-exec.sh
 source ~/.envkeys
