@@ -216,3 +216,6 @@ export PATH="/Users/dan.stone/.codeium/windsurf/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/include $CPPFLAGS"
 export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# Auto-update uv and tools weekly (non-blocking)
+[ -f ~/.dotfiles/scripts/uv-auto-update.sh ] && source ~/.dotfiles/scripts/uv-auto-update.sh
