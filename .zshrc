@@ -153,31 +153,10 @@ shelltiming "Init Krew"
 source ~/.dotfiles/bundler-exec.sh
 source ~/.envkeys
 
-export NVM_DIR=$HOME/.nvm
-[[ -s "$NVM_DIR/nvm.sh"  ]] && source "$NVM_DIR/nvm.sh" --no-use
+# Init fnm (Fast Node Manager) - replaces nvm for better performance
+eval "$(fnm env --use-on-cd)"
 
-shelltiming "Init nvm"
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use --silent
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-#    echo "Reverting to nvm default version"
-    nvm use default --silent
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+shelltiming "Init fnm"
 
 export AWS_PROFILE=ahr
 
@@ -186,7 +165,6 @@ eval "$(direnv hook zsh)"
 USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "~/.iterm2_shell_integration.zsh" ]] && source ~/.iterm2_shell_integration.zsh
 
