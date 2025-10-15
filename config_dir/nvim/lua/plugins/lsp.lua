@@ -7,13 +7,12 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      -- Use the older but guaranteed working approach
-      local lspconfig = require("lspconfig")
+      -- Use new vim.lsp.config API (Neovim 0.11+)
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- Python language server - Use uv-managed pylsp
       if vim.fn.executable('pylsp') == 1 then
-        lspconfig.pylsp.setup({
+        vim.lsp.config.pylsp = {
           cmd = { 'pylsp' },
           capabilities = capabilities,
           settings = {
@@ -31,12 +30,13 @@ return {
               },
             },
           },
-        })
+        }
+        vim.lsp.enable('pylsp')
       end
 
       -- Go language server (only if gopls is available)
       if vim.fn.executable('gopls') == 1 then
-        lspconfig.gopls.setup({
+        vim.lsp.config.gopls = {
           capabilities = capabilities,
           settings = {
             gopls = {
@@ -46,12 +46,13 @@ return {
               staticcheck = true,
             },
           },
-        })
+        }
+        vim.lsp.enable('gopls')
       end
 
       -- Lua language server (if available)
       if vim.fn.executable('lua-language-server') == 1 then
-        lspconfig.lua_ls.setup({
+        vim.lsp.config.lua_ls = {
           capabilities = capabilities,
           settings = {
             Lua = {
@@ -70,14 +71,16 @@ return {
               },
             },
           },
-        })
+        }
+        vim.lsp.enable('lua_ls')
       end
 
       -- TypeScript/JavaScript (if available)
       if vim.fn.executable('typescript-language-server') == 1 then
-        lspconfig.ts_ls.setup({
+        vim.lsp.config.ts_ls = {
           capabilities = capabilities,
-        })
+        }
+        vim.lsp.enable('ts_ls')
       end
 
       -- LSP key mappings (set when LSP attaches)
