@@ -19,6 +19,11 @@ return {
       vim.api.nvim_set_hl(0, "BufferVisibleMod", { bg = "#2c323c", fg = "#ffab00", italic = true })
       vim.api.nvim_set_hl(0, "BufferVisibleSign", { bg = "#2c323c", fg = "#2c323c" })
 
+      -- Icon highlight groups to match buffer backgrounds (fixes visual glitch around icons)
+      vim.api.nvim_set_hl(0, "BufferCurrentIcon", { bg = "#4a9eff", fg = "#1e222a" })
+      vim.api.nvim_set_hl(0, "BufferInactiveIcon", { bg = "#3e4451", fg = "#abb2bf" })
+      vim.api.nvim_set_hl(0, "BufferVisibleIcon", { bg = "#2c323c", fg = "#abb2bf" })
+
       require("barbar").setup({
         -- General settings
         animation = true,
