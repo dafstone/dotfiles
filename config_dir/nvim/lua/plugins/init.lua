@@ -112,4 +112,5 @@ return {
   { import = "plugins.nvim-tree" },
   { import = "plugins.lualine" },
   { import = "plugins.barbar" },
+  { import = "plugins.opencode" },
 }

@@ -197,3 +197,4 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # Auto-update uv and tools weekly (non-blocking)
 [ -f ~/.dotfiles/scripts/uv-auto-update.sh ] && source ~/.dotfiles/scripts/uv-auto-update.sh
+export PATH="$HOME/.local/bin:$PATH"
