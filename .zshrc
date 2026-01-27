@@ -31,6 +31,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=/opt/homebrew/bin/nvim
 export SRC_DIR=src
 
+VI_MODE_DISABLE_CLIPBOARD=true
 plugins=(git git-flow-avh macos vi-mode brew bundler docker history-substring-search kubectl)
 export UPDATE_ZSH_DAYS=7                # Update every week
 COMPLETION_WAITING_DOTS="true"          # Waiting dots
@@ -41,6 +42,13 @@ else
   ZSH_THEME="powerlevel10k/powerlevel10k"
 fi
 source $ZSH/oh-my-zsh.sh
+
+function vi-yank-clipboard {
+  zle vi-yank
+  echo -n "$CUTBUFFER" | pbcopy
+}
+zle -N vi-yank-clipboard
+bindkey -M vicmd '^Y' vi-yank-clipboard
 
 shelltiming "Paths"
 
