@@ -24,7 +24,7 @@ shelltiming "Preinitialization"
 
 
 # PATH Stuff
-PATH="/usr/local/bin:$(getconf PATH)"
+PATH="/usr/local/bin:$(getconf PATH):$PATH"
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
@@ -206,3 +206,10 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 # Auto-update uv and tools weekly (non-blocking)
 [ -f ~/.dotfiles/scripts/uv-auto-update.sh ] && source ~/.dotfiles/scripts/uv-auto-update.sh
 export PATH="$HOME/.local/bin:$PATH"
+
+
+
+# Add this to your ~/.zshrc
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
