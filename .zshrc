@@ -106,8 +106,6 @@ eval "$(zoxide init zsh)"
 
 shelltiming "Init Zoxide"
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/stone/.zshrc'
-
 autoload -U zmv
 autoload -Uz compinit
 compinit
@@ -146,10 +144,10 @@ shelltiming "Init Google Cloud zsh"
 export CLOUDSDK_PYTHON="$HOME/.local/bin/python3"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dan.stone/src/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '~/src/google-cloud-sdk/path.zsh.inc' ]; then . '~/src/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/dan.stone/src/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.stone/src/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '~/src/google-cloud-sdk/completion.zsh.inc' ]; then . '~/src/google-cloud-sdk/completion.zsh.inc'; fi
 
 source <(kubectl completion zsh)
 
@@ -165,8 +163,6 @@ source ~/.envkeys
 eval "$(fnm env --use-on-cd)"
 
 shelltiming "Init fnm"
-
-export AWS_PROFILE=ahr
 
 eval "$(direnv hook zsh)"
 

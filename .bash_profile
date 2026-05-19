@@ -14,10 +14,6 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# Chef Initialization (I think)
-
-eval "$(/Users/stone/.chefvm/bin/chefvm init -)"
-
 # Aliases
 
 . ~/.git_aliases

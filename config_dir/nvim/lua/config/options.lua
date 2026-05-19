@@ -43,7 +43,7 @@ opt.history = 50                    -- Command history
 opt.backspace = { "indent", "eol", "start" }  -- Better backspacing
 
 -- Python host program (pyenv integration)
-vim.g.python3_host_prog = "/Users/dan.stone/.pyenv/versions/3.11.0/bin/python3"
+vim.g.python3_host_prog = "~/.pyenv/versions/3.11.0/bin/python3"
 
 -- Colorscheme settings
 vim.g.aurora_italic = 1
