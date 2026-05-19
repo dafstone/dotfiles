@@ -1,4 +1,4 @@
-" Dan Stone (dan.stone@fgsglobal.com) vimrc
+" Dan Stone (github:dafstone) vimrc
 
 set nocompatible                        
 filetype off                            " no legacy filetype handling
