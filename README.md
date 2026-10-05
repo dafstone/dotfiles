@@ -12,6 +12,7 @@ Personal configuration files for development environment setup.
 
 ### 🖥️ Terminal & Shell
 - **tmux** (`.tmux.conf`) - Terminal multiplexer with vim-style navigation and advanced scrolling
+- **herdr** (`config_dir/herdr/`) - herdr config + helper scripts mimicking the tmux keybindings (symlink to `~/.config/herdr`)
 - **zsh** (`.zshrc`) - Shell configuration with custom aliases and tools
 - **bash** (`.bash_profile`, `.bashrc`) - Bash shell configuration
 
