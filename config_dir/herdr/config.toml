@@ -1,0 +1,225 @@
+onboarding = false
+# Keys follow dafstone/dotfiles .tmux.conf; look and direct alt/ctrl+alt chords
+# come from Omarchy's herdr config (backup: config.toml.omarchy-backup).
+# tmux session -> herdr workspace, tmux window -> herdr tab, tmux pane -> herdr pane
+# Helper scripts live in ~/.config/herdr/scripts
+
+[theme]
+# Follow the terminal's palette so Omarchy theme switches carry over
+name = "terminal"
+
+[theme.custom]
+# The active tab is drawn as panel_bg text on an accent background, so panel_bg
+# has to be dark for it to read
+panel_bg = "black"
+
+[terminal]
+# Splits follow the pane's cwd like -c "#{pane_current_path}"; prefix+n below
+# opens tabs in $HOME like new-window -c ~/.
+new_cwd = "follow"
+
+[keys]
+# Pressing ctrl+a twice sends a literal ctrl+a (tmux had prefix+a for that)
+prefix = "ctrl+a"
+
+# Config and help
+reload_config = "prefix+r"
+help = "prefix+?"
+settings = "prefix+s"
+detach = "prefix+d"
+toggle_sidebar = ["prefix+t", "prefix+b"]
+
+# Copy mode. herdr can't start scrolled, so prefix+ctrl+u/d enter copy mode and
+# ctrl+u/d then scroll half pages. PageUp/PageDown, ctrl+b/f, v, y, / work inside.
+copy_mode = ["prefix+esc", "prefix+[", "prefix+ctrl+u", "prefix+ctrl+d"]
+edit_scrollback = "prefix+e"
+
+# Panes
+split_vertical = ["prefix+|", "alt+shift+enter"]
+split_horizontal = ["prefix+minus", "alt+enter"]
+close_pane = ["prefix+c", "prefix+x", "alt+esc"]
+zoom = "prefix+z"
+last_pane = "prefix+;"
+cycle_pane_next = "prefix+o"
+cycle_pane_previous = ""
+rename_pane = "prefix+shift+p"
+
+# ctrl+h/j/k/l are vim-aware custom commands below
+focus_pane_left = ["prefix+h", "ctrl+alt+left"]
+focus_pane_down = ["prefix+j", "ctrl+alt+down"]
+focus_pane_up = ["prefix+k", "ctrl+alt+up"]
+focus_pane_right = ["prefix+l", "ctrl+alt+right"]
+
+# swap_pane_* keep herdr's prefix+shift+h/j/k/l
+
+resize_pane_left = ["prefix+left", "ctrl+alt+shift+left"]
+resize_pane_down = ["prefix+down", "ctrl+alt+shift+down"]
+resize_pane_up = ["prefix+up", "ctrl+alt+shift+up"]
+resize_pane_right = ["prefix+right", "ctrl+alt+shift+right"]
+resize_mode = "prefix+shift+r"
+
+# Windows -> tabs (prefix+n is a custom command below)
+new_tab = ""
+rename_tab = ["prefix+comma", "prefix+shift+t"]
+close_tab = ["prefix+&", "prefix+shift+x"]
+switch_tab = ["prefix+1..9", "alt+1..9"]
+next_tab = ["prefix+tab", "alt+right"]
+previous_tab = ["prefix+shift+tab", "prefix+p", "alt+left"]
+move_tab_previous = "alt+shift+left"
+move_tab_next = "alt+shift+right"
+
+# Sessions -> workspaces
+workspace_picker = "prefix+w"
+goto = ["prefix+m", "prefix+g"]
+new_workspace = "prefix+shift+n"
+rename_workspace = ["prefix+$", "prefix+shift+w"]
+close_workspace = "prefix+shift+d"
+previous_workspace = ["prefix+(", "alt+up"]
+next_workspace = ["prefix+)", "alt+down"]
+open_notification_target = "prefix+shift+o"
+
+# Agents
+next_agent = "ctrl+alt+j"
+previous_agent = "ctrl+alt+k"
+focus_agent = "prefix+alt+1..9"
+
+[[keys.command]]
+key = "prefix+n"
+type = "shell"
+command = '"$HERDR_BIN_PATH" tab create --workspace "$HERDR_ACTIVE_WORKSPACE_ID" --cwd "$HOME" --focus'
+description = "new tab in home"
+
+[[keys.command]]
+key = "prefix+space"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/cycle-layout.sh"'
+description = "next layout"
+
+[[keys.command]]
+key = "prefix+u"
+type = "popup"
+command = '"$HOME/.config/herdr/scripts/url-select.sh"'
+description = "pick URL"
+width = "80%"
+height = "60%"
+
+# Vim-aware pane navigation
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/vim-nav.sh" left ctrl+h'
+description = "pane left (vim-aware)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/vim-nav.sh" down ctrl+j'
+description = "pane down (vim-aware)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/vim-nav.sh" up ctrl+k'
+description = "pane up (vim-aware)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/vim-nav.sh" right ctrl+l'
+description = "pane right (vim-aware)"
+
+# ctrl+F1..F12 select tab 1..12
+[[keys.command]]
+key = "ctrl+f1"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 1'
+description = "tab 1"
+
+[[keys.command]]
+key = "ctrl+f2"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 2'
+description = "tab 2"
+
+[[keys.command]]
+key = "ctrl+f3"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 3'
+description = "tab 3"
+
+[[keys.command]]
+key = "ctrl+f4"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 4'
+description = "tab 4"
+
+[[keys.command]]
+key = "ctrl+f5"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 5'
+description = "tab 5"
+
+[[keys.command]]
+key = "ctrl+f6"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 6'
+description = "tab 6"
+
+[[keys.command]]
+key = "ctrl+f7"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 7'
+description = "tab 7"
+
+[[keys.command]]
+key = "ctrl+f8"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 8'
+description = "tab 8"
+
+[[keys.command]]
+key = "ctrl+f9"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 9'
+description = "tab 9"
+
+[[keys.command]]
+key = "ctrl+f10"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 10'
+description = "tab 10"
+
+[[keys.command]]
+key = "ctrl+f11"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 11'
+description = "tab 11"
+
+[[keys.command]]
+key = "ctrl+f12"
+type = "shell"
+command = '"$HOME/.config/herdr/scripts/focus-tab.sh" 12'
+description = "tab 12"
+
+[ui]
+accent = "blue"
+
+# Single-line dividers between panes, no outer frame or scrollbar column
+pane_gaps = false
+pane_outer_borders = false
+pane_scrollbars = false
+
+confirm_close = false
+prompt_new_tab_name = false
+mouse_capture = true
+
+tab_bar_right = [{ type = "zoom" }, { type = "hostname" }]
+
+# What Hyprland shows in the group bar; resolves on the server so remote
+# sessions name the remote host
+window_title = "{hostname}: {workspace}"
+agent_panel_sort = "spaces"
+status_indicators = "symbols"
+
+[ui.toast]
+delivery = "system"
